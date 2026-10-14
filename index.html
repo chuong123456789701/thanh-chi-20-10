@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thánh Chỉ 20 Tháng 10</title>
-<meta name="description" content="Thánh Chỉ 20/10 - Bảng nạp chi tiết, bảng nạp mới và đua top nạp.">
+<meta name="description" content="Thánh Chỉ 20/10 - Bảng nạp chi tiết, bảng nạp mới, đua top nạp và lời tâm sự.">
 <style>
   :root{
     --gold:#f5c451;
@@ -21,7 +21,6 @@
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
-
   html{scroll-behavior:smooth}
 
   body{
@@ -49,8 +48,7 @@
     width:74px;height:74px;
     margin:0 auto 18px;
     display:flex;align-items:center;justify-content:center;
-    font-size:38px;
-    font-weight:700;
+    font-size:38px;font-weight:700;
     color:#ffe9a8;
     background:linear-gradient(145deg,#b8262b,#6d0f12);
     border:2px solid var(--gold);
@@ -188,9 +186,7 @@
   }
 
   tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
-
   tbody tr:hover{background:rgba(245,196,81,.07)}
-
   tbody tr:last-child td{border-bottom:none}
 
   .stt{
@@ -244,6 +240,151 @@
 
   .money{font-weight:700;color:#7dffb0;white-space:nowrap}
 
+  /* ================= LỜI TÂM SỰ ================= */
+  .tam-su-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .tam-su-item{
+    background:rgba(245,196,81,.05);
+    border:1px solid var(--border);
+    border-left:4px solid var(--gold);
+    border-radius:12px;
+    padding:16px 18px;
+    transition:.25s;
+  }
+
+  .tam-su-item:hover{
+    background:rgba(245,196,81,.1);
+    transform:translateX(4px);
+  }
+
+  .tam-su-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+  }
+
+  .tam-su-head .name{
+    font-weight:700;
+    color:var(--gold);
+    font-size:15px;
+  }
+
+  .tam-su-head .time{
+    font-size:12px;
+    color:var(--muted);
+    font-style:italic;
+  }
+
+  .tam-su-body{
+    color:var(--text);
+    font-size:14.5px;
+    line-height:1.7;
+    white-space:pre-wrap;
+  }
+
+  /* ================= NẠP & THỜI HẠN ================= */
+  .nap-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-bottom:22px;
+  }
+
+  @media (max-width:720px){
+    .nap-info{grid-template-columns:1fr}
+  }
+
+  .nap-box{
+    background:rgba(245,196,81,.05);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 20px;
+  }
+
+  .nap-box h3{
+    color:var(--gold);
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:12px;
+    padding-bottom:8px;
+    border-bottom:1px dashed var(--border);
+  }
+
+  .nap-box p{
+    font-size:14.5px;
+    margin-bottom:8px;
+    color:var(--text);
+  }
+
+  .nap-box .label{
+    color:var(--muted);
+    font-size:13px;
+    display:inline-block;
+    min-width:120px;
+  }
+
+  .nap-box .value{
+    font-weight:700;
+    color:#ffd76e;
+    word-break:break-all;
+  }
+
+  .qr-wrap{
+    text-align:center;
+    padding:14px;
+    background:#fff;
+    border-radius:12px;
+    margin-top:8px;
+    display:inline-block;
+  }
+
+  .qr-wrap img{
+    display:block;
+    max-width:220px;
+    width:100%;
+    height:auto;
+  }
+
+  .qr-note{
+    text-align:center;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:8px;
+    font-style:italic;
+  }
+
+  .warning-box{
+    background:linear-gradient(135deg, rgba(184,38,43,.25), rgba(139,26,26,.15));
+    border:1px solid rgba(245,196,81,.5);
+    border-radius:14px;
+    padding:16px 18px;
+    margin-top:6px;
+  }
+
+  .warning-box p{
+    font-size:14.5px;
+    color:#ffe9a8;
+    line-height:1.7;
+  }
+
+  .warning-box strong{color:#fff}
+
+  .highlight{
+    background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    color:#2b1002 !important;
+    padding:2px 8px;
+    border-radius:6px;
+    font-weight:800;
+  }
+
   /* ================= FOOTER ================= */
   footer{
     text-align:center;
@@ -272,7 +413,7 @@
 <header class="hero">
   <div class="seal">敕</div>
   <h1>Thánh Chỉ 20 Tháng 10</h1>
-  <p>Bảng phong thần · Nạp chi tiết · Đua top nạp</p>
+  <p>Bảng phong thần · Nạp chi tiết · Đua top nạp · Lời tâm sự</p>
   <div class="divider"></div>
 </header>
 
@@ -280,6 +421,8 @@
   <a href="#nap-chi-tiet">📜 Nạp chi tiết</a>
   <a href="#bang-nap-moi">💎 Bảng nạp mới</a>
   <a href="#dua-top">🏆 Đua top nạp</a>
+  <a href="#nap-thoi-han">💰 Nạp & thời hạn</a>
+  <a href="#tam-su">💌 Lời tâm sự</a>
 </nav>
 
 <main>
@@ -338,6 +481,51 @@
         </thead>
         <tbody></tbody>
       </table>
+    </div>
+  </section>
+
+  <!-- ============ PHẦN 4: NẠP & THỜI HẠN ============ -->
+  <section class="card" id="nap-thoi-han">
+    <h2><span class="icon">💰</span> Nạp & Thời Hạn</h2>
+    <p class="note">Thông tin nạp tiền và thời hạn áp dụng.</p>
+
+    <div class="nap-info">
+      <!-- Cột trái: Thông tin nạp -->
+      <div class="nap-box">
+        <h3>📌 Nơi nạp & Số tài khoản</h3>
+        <p><span class="label">Nơi nạp:</span> <span class="value">Ngân hàng / Ví điện tử</span></p>
+        <p><span class="label">Chủ tài khoản:</span> <span class="value">CHƯƠNG 9/12</span></p>
+        <p><span class="label">Số tài khoản:</span> <span class="value">0123456789</span></p>
+        <p><span class="label">Ngân hàng:</span> <span class="value">Vietcombank (VCB)</span></p>
+        <p><span class="label">Nội dung CK:</span> <span class="value">[Tên] - [Cấp bậc]</span></p>
+      </div>
+
+      <!-- Cột phải: QR -->
+      <div class="nap-box" style="text-align:center;">
+        <h3>📱 Mã QR chuyển tiền</h3>
+        <div class="qr-wrap">
+          <!-- Thay link ảnh QR của bạn vào đây -->
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=CHUONG912-0123456789-VIETCOMBANK"
+               alt="QR chuyển tiền Chương 9/12">
+        </div>
+        <p class="qr-note">Quét mã để chuyển khoản nhanh</p>
+      </div>
+    </div>
+
+    <!-- Cảnh báo / Hướng dẫn -->
+    <div class="warning-box">
+      <p>⚠️ <strong>LƯU Ý QUAN TRỌNG:</strong> Sau khi chuyển tiền xong, vui lòng <span class="highlight">chụp màn hình</span> giao dịch và gửi trực tiếp cho <strong>Chương 9/12</strong> để được xác nhận nạp.</p>
+      <p style="margin-top:10px;">🤝 Hoặc có thể <strong>nạp trực tiếp qua Chương 9/12</strong> (gặp trực tiếp để nạp).</p>
+    </div>
+  </section>
+
+  <!-- ============ PHẦN 5: LỜI TÂM SỰ ============ -->
+  <section class="card" id="tam-su">
+    <h2><span class="icon">💌</span> Lời Tâm Sự (from Chương)</h2>
+    <p class="note">Những lời nhắn gửi từ Chương 9/12.</p>
+
+    <div class="tam-su-list" id="tam-su-list">
+      <!-- JS render -->
     </div>
   </section>
 
@@ -406,6 +594,31 @@ const duaTop = [
   { ten: "Thành viên 10", soTien: 30000,  capBac: "Phổ thông" }
 ];
 
+/* ---------- 4. LỜI TÂM SỰ (from Chương) ---------- */
+/* Thêm/sửa các lời tâm sự ở đây — người gửi, thời gian, nội dung */
+const tamSuList = [
+  {
+    nguoiGui: "Chương 9/12",
+    thoiGian: "20/10/2024",
+    noiDung: "Cảm ơn tất cả mọi người đã đồng hành cùng Chương trong suốt thời gian qua. Chúc mọi người một ngày 20/10 thật vui vẻ và hạnh phúc! ❤️"
+  },
+  {
+    nguoiGui: "Chương 9/12",
+    thoiGian: "20/10/2024",
+    noiDung: "Những ai đã nạp và ủng hộ Chương, Chương xin ghi nhận và biết ơn rất nhiều. Mong rằng mọi người luôn mạnh khỏe và thành công trong cuộc sống."
+  },
+  {
+    nguoiGui: "Chương 9/12",
+    thoiGian: "19/10/2024",
+    noiDung: "Hãy luôn là chính mình, đừng vì bất cứ điều gì mà đánh mất đi giá trị của bản thân. Chương luôn ở đây lắng nghe và chia sẻ cùng mọi người."
+  },
+  {
+    nguoiGui: "Chương 9/12",
+    thoiGian: "18/10/2024",
+    noiDung: "Một lời cảm ơn chân thành đến những ai đã tin tưởng và đồng hành. Chương sẽ cố gắng nhiều hơn nữa để không phụ lòng mọi người. 💛"
+  }
+];
+
 /* =========================================================
    ⚙️ XỬ LÝ — KHÔNG CẦN SỬA
    ========================================================= */
@@ -456,6 +669,17 @@ document.querySelector("#tb-dua-top tbody").innerHTML = duaTop.map((r, i) => `
     <td class="money">${formatTien(r.soTien)}</td>
     <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
   </tr>
+`).join("");
+
+/* ----- Render bảng 4: Lời tâm sự ----- */
+document.getElementById("tam-su-list").innerHTML = tamSuList.map(t => `
+  <div class="tam-su-item">
+    <div class="tam-su-head">
+      <span class="name">💌 ${t.nguoiGui}</span>
+      <span class="time">${t.thoiGian}</span>
+    </div>
+    <div class="tam-su-body">${t.noiDung}</div>
+  </div>
 `).join("");
 
 /* ----- Năm ở footer ----- */
