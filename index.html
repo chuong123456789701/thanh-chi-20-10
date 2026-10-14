@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thánh Chỉ 20 Tháng 10</title>
+<meta name="description" content="Thánh Chỉ 20/10 - Bảng nạp chi tiết, bảng nạp mới và đua top nạp.">
+<style>
+  :root{
+    --gold:#f5c451;
+    --gold-2:#c9962b;
+    --red:#8b1a1a;
+    --red-2:#b8262b;
+    --bg:#120809;
+    --card:#1d1113;
+    --card-2:#251518;
+    --text:#f4e8d4;
+    --muted:#b39c85;
+    --border:rgba(245,196,81,.22);
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html{scroll-behavior:smooth}
+
+  body{
+    font-family:"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(184,38,43,.28), transparent 45%),
+      radial-gradient(circle at 85% 10%, rgba(245,196,81,.13), transparent 45%),
+      var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    line-height:1.6;
+    padding-bottom:40px;
+  }
+
+  /* ================= HEADER ================= */
+  .hero{
+    text-align:center;
+    padding:56px 20px 34px;
+    position:relative;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg, rgba(139,26,26,.35), transparent);
+  }
+
+  .seal{
+    width:74px;height:74px;
+    margin:0 auto 18px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:38px;
+    font-weight:700;
+    color:#ffe9a8;
+    background:linear-gradient(145deg,#b8262b,#6d0f12);
+    border:2px solid var(--gold);
+    border-radius:12px;
+    box-shadow:0 0 26px rgba(245,196,81,.35), inset 0 0 18px rgba(0,0,0,.5);
+    transform:rotate(-4deg);
+  }
+
+  .hero h1{
+    font-size:clamp(26px,5.5vw,50px);
+    letter-spacing:2px;
+    font-weight:800;
+    text-transform:uppercase;
+    background:linear-gradient(180deg,#fff3cd,#f5c451 45%,#b8860b);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-shadow:0 4px 24px rgba(245,196,81,.25);
+  }
+
+  .hero p{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:clamp(13px,2.4vw,16px);
+    letter-spacing:.5px;
+  }
+
+  .hero .divider{
+    width:180px;height:2px;margin:20px auto 0;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+
+  /* ================= NAV ================= */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+    padding:14px 16px;
+    background:rgba(18,8,9,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+
+  .nav a{
+    text-decoration:none;
+    color:var(--gold);
+    font-weight:600;
+    font-size:14px;
+    padding:9px 18px;
+    border:1px solid var(--border);
+    border-radius:999px;
+    background:rgba(245,196,81,.05);
+    transition:.25s;
+    white-space:nowrap;
+  }
+
+  .nav a:hover{
+    background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    color:#2b1002;
+    transform:translateY(-2px);
+    box-shadow:0 6px 18px rgba(245,196,81,.3);
+  }
+
+  /* ================= LAYOUT ================= */
+  main{
+    max-width:1080px;
+    margin:0 auto;
+    padding:34px 16px 0;
+    display:flex;
+    flex-direction:column;
+    gap:34px;
+  }
+
+  .card{
+    background:linear-gradient(180deg,var(--card),var(--card-2));
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:24px 20px 28px;
+    box-shadow:var(--shadow);
+    scroll-margin-top:80px;
+  }
+
+  .card h2{
+    font-size:clamp(18px,3.4vw,24px);
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding-bottom:14px;
+    margin-bottom:20px;
+    border-bottom:1px dashed var(--border);
+  }
+
+  .card h2 span.icon{font-size:1.15em}
+
+  .note{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:16px;
+    font-style:italic;
+  }
+
+  /* ================= TABLE ================= */
+  .table-wrap{
+    width:100%;
+    overflow-x:auto;
+    border-radius:12px;
+    border:1px solid var(--border);
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:560px;
+    font-size:15px;
+  }
+
+  thead th{
+    background:linear-gradient(180deg,#7d1418,#4a0a0d);
+    color:var(--gold);
+    text-transform:uppercase;
+    font-size:12.5px;
+    letter-spacing:1px;
+    padding:14px 12px;
+    text-align:left;
+    white-space:nowrap;
+    border-bottom:1px solid var(--border);
+  }
+
+  tbody td{
+    padding:12px;
+    border-bottom:1px solid rgba(245,196,81,.09);
+    vertical-align:middle;
+  }
+
+  tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
+
+  tbody tr:hover{background:rgba(245,196,81,.07)}
+
+  tbody tr:last-child td{border-bottom:none}
+
+  .stt{
+    font-weight:700;
+    color:var(--gold);
+    width:56px;
+    text-align:center;
+  }
+
+  .ten{font-weight:600;color:#fff}
+
+  /* ================= BADGE CẤP BẬC ================= */
+  .badge{
+    display:inline-block;
+    padding:4px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.5px;
+    white-space:nowrap;
+    border:1px solid transparent;
+  }
+
+  .b-common{background:#3a3a3a;color:#d8d8d8;border-color:#555}
+  .b-vip1{background:rgba(46,204,113,.15);color:#4ade80;border-color:rgba(74,222,128,.45)}
+  .b-vip2{background:rgba(56,152,255,.15);color:#63b3ff;border-color:rgba(99,179,255,.45)}
+  .b-vip3{background:rgba(168,85,247,.15);color:#c084fc;border-color:rgba(192,132,252,.45)}
+  .b-vip4{background:rgba(249,115,22,.15);color:#fb923c;border-color:rgba(251,146,60,.45)}
+  .b-prime{
+    background:linear-gradient(135deg,#f5c451,#b8262b);
+    color:#fff8e1;
+    border-color:#f5c451;
+    box-shadow:0 0 12px rgba(245,196,81,.45);
+  }
+
+  /* ================= GIÁ NẠP ================= */
+  .price{font-weight:800;color:#ffd76e;font-size:16px;white-space:nowrap}
+
+  /* ================= LEADERBOARD ================= */
+  .top1 td{background:linear-gradient(90deg,rgba(245,196,81,.18),transparent)!important}
+  .top2 td{background:linear-gradient(90deg,rgba(192,192,192,.14),transparent)!important}
+  .top3 td{background:linear-gradient(90deg,rgba(205,127,50,.14),transparent)!important}
+
+  .hang{
+    font-weight:800;
+    font-size:16px;
+    text-align:center;
+    width:70px;
+    color:var(--gold);
+  }
+
+  .money{font-weight:700;color:#7dffb0;white-space:nowrap}
+
+  /* ================= FOOTER ================= */
+  footer{
+    text-align:center;
+    margin-top:46px;
+    padding:26px 16px 0;
+    color:var(--muted);
+    font-size:13px;
+    border-top:1px solid var(--border);
+    max-width:1080px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  footer strong{color:var(--gold)}
+
+  @media (max-width:600px){
+    .card{padding:18px 12px 22px;border-radius:12px}
+    table{font-size:13.5px;min-width:480px}
+    thead th,tbody td{padding:10px 8px}
+    .nav a{font-size:12.5px;padding:8px 13px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="seal">敕</div>
+  <h1>Thánh Chỉ 20 Tháng 10</h1>
+  <p>Bảng phong thần · Nạp chi tiết · Đua top nạp</p>
+  <div class="divider"></div>
+</header>
+
+<nav class="nav">
+  <a href="#nap-chi-tiet">📜 Nạp chi tiết</a>
+  <a href="#bang-nap-moi">💎 Bảng nạp mới</a>
+  <a href="#dua-top">🏆 Đua top nạp</a>
+</nav>
+
+<main>
+
+  <!-- ============ PHẦN 1 ============ -->
+  <section class="card" id="nap-chi-tiet">
+    <h2><span class="icon">📜</span> Nạp Chi Tiết (1 → 25)</h2>
+    <p class="note">Danh sách 25 thành viên kèm chi tiết và cấp bậc.</p>
+    <div class="table-wrap">
+      <table id="tb-nap-chi-tiet">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Chi tiết</th>
+            <th>Cấp bậc</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ PHẦN 2 ============ -->
+  <section class="card" id="bang-nap-moi">
+    <h2><span class="icon">💎</span> Bảng Nạp Mới</h2>
+    <p class="note">Mức nạp tương ứng theo từng cấp bậc.</p>
+    <div class="table-wrap">
+      <table id="tb-bang-nap">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Cấp bậc</th>
+            <th>Mức nạp</th>
+            <th>Ghi chú</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ PHẦN 3 ============ -->
+  <section class="card" id="dua-top">
+    <h2><span class="icon">🏆</span> Bảng Đua Top Nạp</h2>
+    <p class="note">Bảng xếp hạng top nạp — cập nhật liên tục.</p>
+    <div class="table-wrap">
+      <table id="tb-dua-top">
+        <thead>
+          <tr>
+            <th>Hạng</th>
+            <th>Tên</th>
+            <th>Số tiền nạp</th>
+            <th>Cấp bậc</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>THÁNH CHỈ 20 THÁNG 10</strong> — Bảng được cập nhật tự động.</p>
+  <p>© <span id="year"></span> Thánh Chỉ 20/10. All rights reserved.</p>
+</footer>
+
+<script>
+/* =========================================================
+   ✏️ SỬA DỮ LIỆU Ở ĐÂY
+   ========================================================= */
+
+/* ---------- 1. DANH SÁCH NẠP CHI TIẾT (25 người) ---------- */
+const danhSachNap = [
+  { ten: "Thành viên 01", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 02", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 03", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 04", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 05", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 06", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 07", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 08", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 09", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 10", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 11", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 12", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 13", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 14", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 15", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 16", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 17", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 18", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 19", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 20", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 21", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 22", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 23", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 24", chiTiet: "—", capBac: "Phổ thông" },
+  { ten: "Thành viên 25", chiTiet: "—", capBac: "Phổ thông" }
+];
+
+/* ---------- 2. BẢNG NẠP MỚI ---------- */
+const bangNapMoi = [
+  { capBac: "Phổ thông", mucNap: 15000,  ghiChu: "Gói cơ bản" },
+  { capBac: "VIP 1",     mucNap: 16000,  ghiChu: "Ưu đãi nhẹ" },
+  { capBac: "VIP 2",     mucNap: 17000,  ghiChu: "Ưu đãi vừa" },
+  { capBac: "VIP 3",     mucNap: 18000,  ghiChu: "Ưu đãi khá" },
+  { capBac: "VIP 4",     mucNap: 19000,  ghiChu: "Ưu đãi cao" },
+  { capBac: "Prime",     mucNap: 20000,  ghiChu: "20k đổ lên — cao cấp nhất" }
+];
+
+/* ---------- 3. BẢNG ĐUA TOP NẠP ---------- */
+const duaTop = [
+  { ten: "Thành viên 01", soTien: 500000, capBac: "Prime" },
+  { ten: "Thành viên 02", soTien: 350000, capBac: "VIP 4" },
+  { ten: "Thành viên 03", soTien: 280000, capBac: "VIP 3" },
+  { ten: "Thành viên 04", soTien: 200000, capBac: "VIP 2" },
+  { ten: "Thành viên 05", soTien: 150000, capBac: "VIP 1" },
+  { ten: "Thành viên 06", soTien: 100000, capBac: "Phổ thông" },
+  { ten: "Thành viên 07", soTien: 80000,  capBac: "Phổ thông" },
+  { ten: "Thành viên 08", soTien: 60000,  capBac: "Phổ thông" },
+  { ten: "Thành viên 09", soTien: 45000,  capBac: "Phổ thông" },
+  { ten: "Thành viên 10", soTien: 30000,  capBac: "Phổ thông" }
+];
+
+/* =========================================================
+   ⚙️ XỬ LÝ — KHÔNG CẦN SỬA
+   ========================================================= */
+
+const BADGE_MAP = {
+  "phổ thông": "b-common",
+  "vip 1": "b-vip1",
+  "vip 2": "b-vip2",
+  "vip 3": "b-vip3",
+  "vip 4": "b-vip4",
+  "prime": "b-prime"
+};
+
+function badgeClass(capBac){
+  return BADGE_MAP[String(capBac).toLowerCase().trim()] || "b-common";
+}
+
+function formatTien(n){
+  return Number(n).toLocaleString("vi-VN") + "đ";
+}
+
+/* ----- Render bảng 1: Nạp chi tiết ----- */
+document.querySelector("#tb-nap-chi-tiet tbody").innerHTML = danhSachNap.map((r, i) => `
+  <tr>
+    <td class="stt">${i + 1}</td>
+    <td class="ten">${r.ten}</td>
+    <td>${r.chiTiet}</td>
+    <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
+  </tr>
+`).join("");
+
+/* ----- Render bảng 2: Bảng nạp mới ----- */
+document.querySelector("#tb-bang-nap tbody").innerHTML = bangNapMoi.map((r, i) => `
+  <tr>
+    <td class="stt">${i + 1}</td>
+    <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
+    <td class="price">${formatTien(r.mucNap)}${r.capBac === "Prime" ? " đổ lên" : ""}</td>
+    <td>${r.ghiChu}</td>
+  </tr>
+`).join("");
+
+/* ----- Render bảng 3: Đua top nạp ----- */
+const medal = ["🥇", "🥈", "🥉"];
+document.querySelector("#tb-dua-top tbody").innerHTML = duaTop.map((r, i) => `
+  <tr class="${i < 3 ? "top" + (i + 1) : ""}">
+    <td class="hang">${medal[i] || "#" + (i + 1)}</td>
+    <td class="ten">${r.ten}</td>
+    <td class="money">${formatTien(r.soTien)}</td>
+    <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
+  </tr>
+`).join("");
+
+/* ----- Năm ở footer ----- */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
