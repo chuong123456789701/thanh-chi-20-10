@@ -221,6 +221,18 @@
     border-color:#f5c451;
     box-shadow:0 0 12px rgba(245,196,81,.45);
   }
+  
+  /* Badge tùy chỉnh cho các cấp bậc đặc biệt */
+  .b-laybo {
+    background: rgba(139, 26, 26, .3);
+    color: #ff6b6b;
+    border-color: rgba(255, 107, 107, .5);
+  }
+  .b-lovai {
+    background: rgba(128, 128, 128, .2);
+    color: #b0b0b0;
+    border-color: rgba(176, 176, 176, .5);
+  }
 
   /* ================= GIÁ NẠP ================= */
   .price{font-weight:800;color:#ffd76e;font-size:16px;white-space:nowrap}
@@ -504,7 +516,7 @@
       <div class="nap-box" style="text-align:center;">
         <h3>📱 Mã QR chuyển tiền</h3>
         <div class="qr-wrap">
-          <!-- Thay link ảnh QR của bạn vào đây -->
+          <!-- Link ảnh QR của bạn -->
           <img src="https://github.com/chuong123456789701/thanh-chi-20-10/blob/main/qr.png?raw=true"
                alt="QR chuyển tiền Chương 9/12">
         </div>
@@ -581,25 +593,25 @@ const bangNapMoi = [
 ];
 
 /* ---------- 3. BẢNG ĐUA TOP NẠP ---------- */
+/* Đã sửa lỗi cú pháp: thay ... bằng số 0 và chữ ... */
 const duaTop = [
   { ten: "Gia Bảo", soTien: 20000, capBac: "Prime" },
-  { ten: "viết Chương", soTien: 20000, capBac: "Prime" },
+  { ten: "Viết Chương", soTien: 20000, capBac: "Prime" },
   { ten: "Ngọc Nguyên", soTien: 20000, capBac: "Prime" },
   { ten: "Quý Vương", soTien: 16000, capBac: "VIP 1" },
   { ten: "Tín Đạt", soTien: 16000, capBac: "VIP 1" },
-  { ten: "Huy Hoàng", soTien: 16000, capBac: "Vip 1" },
-  { ten: ".........", soTien: ...,  capBac: "..." },
-  { ten: ".........", soTien: ...,  capBac: "..." },
-  { ten: ".........", soTien: ...,  capBac: "..." },
-  { ten: ".........", soTien: ...,  capBac: "..." }
+  { ten: "Huy Hoàng", soTien: 16000, capBac: "VIP 1" },
+  { ten: ".........", soTien: 0,  capBac: "..." },
+  { ten: ".........", soTien: 0,  capBac: "..." },
+  { ten: ".........", soTien: 0,  capBac: "..." },
+  { ten: ".........", soTien: 0,  capBac: "..." }
 ];
 
 /* ---------- 4. LỜI TÂM SỰ (from Chương) ---------- */
-/* Thêm/sửa các lời tâm sự ở đây — người gửi, thời gian, nội dung */
 const tamSuList = [
   {
     nguoiGui: "Chương 9/12",
-    thoiGian: "20/10/",
+    thoiGian: "20/10/2026",
     noiDung: "chúc tất cả anh anh em tốt bụng đã nạp lần đầu nhé!"
   },
   {
@@ -629,7 +641,9 @@ const BADGE_MAP = {
   "vip 2": "b-vip2",
   "vip 3": "b-vip3",
   "vip 4": "b-vip4",
-  "prime": "b-prime"
+  "prime": "b-prime",
+  "lạy bố": "b-laybo",
+  "lỏ vãi": "b-lovai"
 };
 
 function badgeClass(capBac){
@@ -637,6 +651,7 @@ function badgeClass(capBac){
 }
 
 function formatTien(n){
+  if (n === 0) return "—";
   return Number(n).toLocaleString("vi-VN") + "đ";
 }
 
