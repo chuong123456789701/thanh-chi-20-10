@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thánh Chỉ 20 Tháng 10</title>
-<meta name="description" content="Thánh Chỉ 20/10 - Bảng nạp chi tiết, bảng nạp mới, đua top nạp, ưu đãi và lời tâm sự.">
+<meta name="description" content="Thánh Chỉ 20/10 - Bảng nạp chi tiết, bảng nạp mới, đua top nạp, ưu đãi, voice cảm ơn và lời tâm sự.">
 <style>
   :root{
     --gold:#f5c451;
@@ -233,7 +233,6 @@
     to{box-shadow:0 0 22px rgba(255,45,149,.85), 0 0 34px rgba(0,229,255,.55)}
   }
 
-  /* Badge tùy chỉnh cho các cấp bậc đặc biệt */
   .b-laybo {
     background: rgba(139, 26, 26, .3);
     color: #ff6b6b;
@@ -372,6 +371,134 @@
     background:linear-gradient(135deg,#ff2d95,#00e5ff);
     color:#0a0010;
     border-color:#ffe9a8;
+  }
+
+  /* ================= VOICE CẢM ƠN (TRẢ KÈO) ================= */
+  .cam-on-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:18px;
+  }
+
+  .cam-on-card{
+    position:relative;
+    background:linear-gradient(160deg,rgba(184,38,43,.18),rgba(245,196,81,.06));
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px 18px 20px;
+    transition:.28s;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    overflow:hidden;
+  }
+
+  .cam-on-card::after{
+    content:"";
+    position:absolute;
+    top:-30px;right:-30px;
+    width:90px;height:90px;
+    background:radial-gradient(circle,rgba(245,196,81,.25),transparent 70%);
+    pointer-events:none;
+  }
+
+  .cam-on-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(245,196,81,.55);
+    box-shadow:0 12px 30px rgba(184,38,43,.28);
+  }
+
+  .cam-on-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    padding-bottom:10px;
+    border-bottom:1px dashed var(--border);
+  }
+
+  .cam-on-head .name{
+    font-size:16px;
+    font-weight:800;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .cam-on-head .name .mic{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;height:30px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#b8262b,#6d0f12);
+    border:1px solid var(--gold);
+    font-size:15px;
+    box-shadow:0 0 10px rgba(245,196,81,.35);
+  }
+
+  .cam-on-text{
+    font-size:14.5px;
+    color:var(--text);
+    line-height:1.7;
+    font-style:italic;
+    padding:10px 12px;
+    background:rgba(0,0,0,.25);
+    border-left:3px solid var(--gold);
+    border-radius:8px;
+  }
+
+  .cam-on-text b{color:#ffd76e;font-style:normal}
+
+  .cam-on-audio{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:rgba(0,0,0,.35);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:8px 14px;
+  }
+
+  .cam-on-audio .play-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:34px;height:34px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    color:#2b1002;
+    font-size:15px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s;
+    user-select:none;
+  }
+
+  .cam-on-audio .play-icon:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 14px rgba(245,196,81,.55);
+  }
+
+  .cam-on-audio audio{
+    flex:1;
+    height:34px;
+    filter:sepia(.4) hue-rotate(-15deg) saturate(1.3) brightness(.95);
+    min-width:0;
+  }
+
+  .cam-on-empty{
+    text-align:center;
+    padding:34px 18px;
+    color:var(--muted);
+    font-style:italic;
+    font-size:14px;
+    border:1px dashed var(--border);
+    border-radius:12px;
+    background:rgba(245,196,81,.03);
   }
 
   /* ================= LỜI TÂM SỰ ================= */
@@ -539,6 +666,7 @@
     table{font-size:13.5px;min-width:480px}
     thead th,tbody td{padding:10px 8px}
     .nav a{font-size:12.5px;padding:8px 13px}
+    .cam-on-audio audio{height:30px}
   }
 </style>
 </head>
@@ -547,7 +675,7 @@
 <header class="hero">
   <div class="seal">敕</div>
   <h1>Thánh Chỉ 20 Tháng 10</h1>
-  <p>Bảng phong thần · Nạp chi tiết · Đua top nạp · Ưu đãi · Lời tâm sự</p>
+  <p>Bảng phong thần · Nạp chi tiết · Đua top nạp · Ưu đãi · Voice cảm ơn · Lời tâm sự</p>
   <div class="divider"></div>
 </header>
 
@@ -556,6 +684,7 @@
   <a href="#bang-nap-moi">💎 Bảng nạp mới</a>
   <a href="#dua-top">🏆 Đua top nạp</a>
   <a href="#uu-dai">🎁 Ưu đãi</a>
+  <a href="#tra-keo">🎤 Voice cảm ơn</a>
   <a href="#nap-thoi-han">💰 Nạp & thời hạn</a>
   <a href="#tam-su">💌 Lời tâm sự</a>
 </nav>
@@ -704,7 +833,17 @@
     </div>
   </section>
 
-  <!-- ============ PHẦN 5: NẠP & THỜI HẠN ============ -->
+  <!-- ============ PHẦN 5: VOICE CẢM ƠN (TRẢ KÈO) ============ -->
+  <section class="card" id="tra-keo">
+    <h2><span class="icon">🎤</span> Voice Cảm Ơn Từ Chương</h2>
+    <p class="note">Chương gửi lời cảm ơn riêng tới từng người đã ủng hộ — bấm Play để nghe.</p>
+
+    <div class="cam-on-list" id="cam-on-list">
+      <!-- JS render -->
+    </div>
+  </section>
+
+  <!-- ============ PHẦN 6: NẠP & THỜI HẠN ============ -->
   <section class="card" id="nap-thoi-han">
     <h2><span class="icon">💰</span> Nạp & Thời Hạn</h2>
     <p class="note">Thông tin nạp tiền và thời hạn áp dụng.</p>
@@ -739,7 +878,7 @@
     </div>
   </section>
 
-  <!-- ============ PHẦN 6: LỜI TÂM SỰ ============ -->
+  <!-- ============ PHẦN 7: LỜI TÂM SỰ ============ -->
   <section class="card" id="tam-su">
     <h2><span class="icon">💌</span> Lời Tâm Sự (from Chương)</h2>
     <p class="note">Những lời nhắn gửi từ Chương 9/12.</p>
@@ -781,7 +920,7 @@ const danhSachNap = [
   { ten: "Minh Khang", chiTiet: "15.000đ", capBac: "Phổ thông" },
   { ten: "Tuấn Kiệt", chiTiet: "20.000đ", capBac: "prime" },
   { ten: "Hải Minh", chiTiet: "17.000đ", capBac: "vip 2" },
-  { ten: "Minh Hải", chiTiet: "15.000đ", capBac: "Phổ thông" },
+  { ten: "Minh Hải", chiTiet: "17.000đ", capBac: "vip 2" },
   { ten: "Khôi Nguyên", chiTiet: "20.000đ", capBac: "prime" },
   { ten: "Ngọc Nguyên", chiTiet: "20.000đ", capBac: "prime" },
   { ten: "Tín Đạt", chiTiet: "23.000đ", capBac: "prime" },
@@ -804,18 +943,76 @@ const bangNapMoi = [
 /* ---------- 3. BẢNG ĐUA TOP NẠP ---------- */
 const duaTop = [
   { ten: "Tín Đạt",     soTien: 23000, capBac: "Prime" },
-  { ten: "Hồng Phong", soTien: 22000, capBac: "Prime" },
+  { ten: "Hồng Phong",  soTien: 22000, capBac: "Prime" },
   { ten: "Viết Chương", soTien: 20000, capBac: "Prime" },
-  { ten: "Gia Bảo",   soTien: 20000, capBac: "Prime" },
-  { ten: "Hoàng Long",     soTien: 20000, capBac: "Prime" },
-  { ten: "Ngọc Nguyên",   soTien: 20000, capBac: "Prime" },
-  { ten: "Khôi Nguyên",    soTien: 20000,     capBac: "Prime" },
-  { ten: "Tuấn Kiệt",    soTien: 20000,     capBac: "prime" },
-  { ten: "Hoàng Duy",    soTien: 19000,     capBac: "vip 4" },
-  { ten: "Hải Minh",    soTien: 17000,     capBac: "vip 2" }
+  { ten: "Gia Bảo",     soTien: 20000, capBac: "Prime" },
+  { ten: "Hoàng Long",  soTien: 20000, capBac: "Prime" },
+  { ten: "Ngọc Nguyên", soTien: 20000, capBac: "Prime" },
+  { ten: "Khôi Nguyên", soTien: 20000, capBac: "Prime" },
+  { ten: "Tuấn Kiệt",   soTien: 20000, capBac: "Prime" },
+  { ten: "Hoàng Duy",   soTien: 19000, capBac: "VIP 4" },
+  { ten: "Hải Minh",    soTien: 17000, capBac: "VIP 2" }
 ];
 
-/* ---------- 4. LỜI TÂM SỰ (from Chương) ---------- */
+/* ---------- 4. VOICE TRẢ KÈO CỦA CHƯƠNG ----------
+   Mỗi mục gồm:
+   - ten: tên người được cảm ơn
+   - loiCamOn: câu Chương sẽ nói (hiển thị trên card)
+------------------------------------------------- */
+const camOnList = [
+  {
+    ten: "Tín Đạt",
+    loiCamOn: "cảm ơn anh bảo huy",
+    audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b.huy%5D.m4a"
+  },
+  {
+    ten: "Hồng Phong",
+    loiCamOn: "Con cảm ơn bố Hồng Phong!",
+    audio: ""
+  },
+  {
+    ten: "Viết Chương",
+    loiCamOn: "Con cảm ơn bố Viết Chương!",
+    audio: ""
+  },
+  {
+    ten: "Gia Bảo",
+    loiCamOn: "Con cảm ơn bố Gia Bảo!",
+    audio: ""
+  },
+  {
+    ten: "Hoàng Long",
+    loiCamOn: "Con cảm ơn bố Hoàng Long!",
+    audio: ""
+  },
+  {
+    ten: "Ngọc Nguyên",
+    loiCamOn: "Con cảm ơn bố Ngọc Nguyên!",
+    audio: ""
+  },
+  {
+    ten: "Khôi Nguyên",
+    loiCamOn: "Con cảm ơn bố Khôi Nguyên!",
+    audio: ""
+  },
+  {
+    ten: "Tuấn Kiệt",
+    loiCamOn: "Con cảm ơn bố Tuấn Kiệt!",
+    audio: ""
+  },
+  {
+    ten: "Hoàng Duy",
+    loiCamOn: "Con cảm ơn bố Hoàng Duy!",
+    audio: ""
+  },
+  {
+    ten: "Hải Minh",
+    loiCamOn: "Con cảm ơn bố Hải Minh!",
+    audio: ""
+  }
+];
+
+/* ---------- 5. LỜI TÂM SỰ (from Chương) ---------- */
 const tamSuList = [
   {
     nguoiGui: "Chương 9/12",
@@ -875,7 +1072,6 @@ document.querySelector("#tb-nap-chi-tiet tbody").innerHTML = danhSachNap.map((r,
 `).join("");
 
 /* ----- Render bảng 2: Bảng nạp mới ----- */
-/* Chỉ "Prime Promax" mới có "đổ lên", còn "Prime" chỉ là 20.000đ */
 document.querySelector("#tb-bang-nap tbody").innerHTML = bangNapMoi.map((r, i) => `
   <tr>
     <td class="stt">${i + 1}</td>
@@ -896,7 +1092,47 @@ document.querySelector("#tb-dua-top tbody").innerHTML = duaTop.map((r, i) => `
   </tr>
 `).join("");
 
-/* ----- Render bảng 4: Lời tâm sự ----- */
+/* ----- Render bảng 4: Voice cảm ơn của Chương ----- */
+const camOnListEl = document.getElementById("cam-on-list");
+
+if (!camOnList || camOnList.length === 0) {
+  camOnListEl.innerHTML = `<div class="cam-on-empty">🎤 Chưa có voice cảm ơn nào.</div>`;
+} else {
+  camOnListEl.innerHTML = camOnList.map((r, i) => {
+    let audioHTML = "";
+    if (r.audio && r.audio.trim() !== "") {
+      const audioId = `audio-camon-${i}`;
+      audioHTML = `
+        <div class="cam-on-audio">
+          <span class="play-icon" onclick="(function(a){a.paused?a.play():a.pause();})(document.getElementById('${audioId}'))">▶</span>
+          <audio id="${audioId}" controls preload="none" src="${r.audio}"></audio>
+        </div>
+      `;
+    } else {
+      audioHTML = `
+        <div class="cam-on-audio">
+          <span class="play-icon" style="background:#444;color:#aaa;cursor:not-allowed;box-shadow:none">⏳</span>
+          <span style="font-size:13px;color:var(--muted);font-style:italic">Voice đang cập nhật...</span>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="cam-on-card">
+        <div class="cam-on-head">
+          <span class="name">
+            <span class="mic">🎤</span>
+            ${r.ten}
+          </span>
+        </div>
+        <div class="cam-on-text">🎙️ "${r.loiCamOn}"</div>
+        ${audioHTML}
+      </div>
+    `;
+  }).join("");
+}
+
+/* ----- Render bảng 5: Lời tâm sự ----- */
 document.getElementById("tam-su-list").innerHTML = tamSuList.map(t => `
   <div class="tam-su-item">
     <div class="tam-su-head">
