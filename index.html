@@ -198,6 +198,87 @@
 
   .ten{font-weight:600;color:#fff}
 
+  /* ================= TỔNG TIỀN ================= */
+  .total-box{
+    margin-top:16px;
+    padding:18px 22px;
+    background:linear-gradient(135deg, rgba(184,38,43,.28), rgba(245,196,81,.12));
+    border:1px solid var(--border);
+    border-left:5px solid var(--gold);
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    box-shadow:0 6px 22px rgba(0,0,0,.35);
+    position:relative;
+    overflow:hidden;
+  }
+
+  .total-box::after{
+    content:"";
+    position:absolute;
+    top:-40px;right:-40px;
+    width:140px;height:140px;
+    background:radial-gradient(circle,rgba(245,196,81,.28),transparent 70%);
+    pointer-events:none;
+  }
+
+  .total-label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    color:var(--gold);
+    text-shadow:0 2px 10px rgba(245,196,81,.35);
+  }
+
+  .total-label .icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;height:38px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#b8262b,#6d0f12);
+    border:1px solid var(--gold);
+    font-size:18px;
+    box-shadow:0 0 14px rgba(245,196,81,.4);
+  }
+
+  .total-value{
+    font-size:clamp(22px,4vw,30px);
+    font-weight:900;
+    letter-spacing:1px;
+    color:#7dffb0;
+    text-shadow:0 0 18px rgba(125,255,176,.35);
+    white-space:nowrap;
+    font-variant-numeric:tabular-nums;
+  }
+
+  .total-value.negative{
+    color:#ff7b7b;
+    text-shadow:0 0 18px rgba(255,123,123,.4);
+  }
+
+  .total-sub{
+    width:100%;
+    font-size:12.5px;
+    color:var(--muted);
+    font-style:italic;
+    margin-top:2px;
+  }
+
+  @media (max-width:520px){
+    .total-box{padding:14px 16px}
+    .total-label{font-size:13px}
+    .total-label .icon{width:32px;height:32px;font-size:15px}
+    .total-value{font-size:22px}
+  }
+
   /* ================= BADGE CẤP BẬC ================= */
   .badge{
     display:inline-block;
@@ -839,6 +920,16 @@
         <tbody></tbody>
       </table>
     </div>
+
+    <!-- TỔNG TIỀN -->
+    <div class="total-box">
+      <div class="total-label">
+        <span class="icon">💰</span>
+        Tổng tiền hiện tại
+      </div>
+      <div class="total-value" id="tong-tien">0đ</div>
+      <div class="total-sub" id="tong-tien-sub"></div>
+    </div>
   </section>
 
   <!-- ============ PHẦN 2 ============ -->
@@ -1148,6 +1239,21 @@ function formatTien(n){
   return Number(n).toLocaleString("vi-VN") + "đ";
 }
 
+/* Phân tích chuỗi chi tiết -> số tiền (xử lý "âm", dấu chấm, "đ") */
+function parseChiTiet(str){
+  if (!str) return 0;
+  let s = String(str).toLowerCase().trim();
+
+  // Kiểm tra âm
+  const isNegative = s.includes("âm") || s.startsWith("-");
+
+  // Bỏ các chữ không phải số
+  s = s.replace(/[^\d]/g, "");
+
+  const num = parseInt(s, 10) || 0;
+  return isNegative ? -num : num;
+}
+
 /* ----- Render bảng 1: Nạp chi tiết ----- */
 document.querySelector("#tb-nap-chi-tiet tbody").innerHTML = danhSachNap.map((r, i) => `
   <tr>
@@ -1157,6 +1263,33 @@ document.querySelector("#tb-nap-chi-tiet tbody").innerHTML = danhSachNap.map((r,
     <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
   </tr>
 `).join("");
+
+/* ----- TÍNH & HIỂN THỊ TỔNG TIỀN ----- */
+(function renderTongTien(){
+  const tongTienEl = document.getElementById("tong-tien");
+  const tongTienSub = document.getElementById("tong-tien-sub");
+  if (!tongTienEl) return;
+
+  let tong = 0;
+  let soDuong = 0;   // số người nạp dương
+  let soAm = 0;      // số người nạp âm
+  let soKhong = 0;   // số người 0đ
+
+  danhSachNap.forEach(r => {
+    const val = parseChiTiet(r.chiTiet);
+    tong += val;
+    if (val > 0) soDuong++;
+    else if (val < 0) soAm++;
+    else soKhong++;
+  });
+
+  tongTienEl.textContent = tong.toLocaleString("vi-VN") + "đ";
+  tongTienEl.classList.toggle("negative", tong < 0);
+
+  tongTienSub.textContent =
+    `Đã tổng hợp ${danhSachNap.length} thành viên · ` +
+    `${soDuong} người nạp dương · ${soAm} người nạp âm · ${soKhong} người 0đ`;
+})();
 
 /* ----- Render bảng 2: Bảng nạp mới ----- */
 document.querySelector("#tb-bang-nap tbody").innerHTML = bangNapMoi.map((r, i) => `
