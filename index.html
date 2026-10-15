@@ -1097,21 +1097,22 @@ const duaTop = [
 /* ---------- 4. VOICE CẢM ƠN CỦA CHƯƠNG ----------
    - ten: tên người được cảm ơn
    - loiCamOn: câu Chương sẽ nói
+   - audio: LINK FILE VOICE
 ------------------------------------------------- */
 const camOnList = [
-  { ten: "Bảo Huy",     loiCamOn: "cảm ơn anh Bảo Huy!",  audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b.huy%5D.m4a" },
-  { ten: "Hoàng Duy",  loiCamOn: "cảm ơn anh Hoàng Duy!",  audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/duy.m4a" },
-  { ten: "Huy Hoàng", loiCamOn: "cảm ơn anh Huy Hoàng!", audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/ho%C3%A0ng.m4a" },
-  { ten: "Hải Minh",     loiCamOn: "cảm ơn anh Hải Minh!",     audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/minh.m4a" },
-  { ten: "Quý Vương",  loiCamOn: "cảm ơn anh Quý Vương!",  audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/qu%C3%BD%20v%C6%B0%C6%A1ng'.m4a" },
-  { ten: "Kim Thái", loiCamOn: "cảm ơn anh Kim thái!", audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/th%C3%A1i.m4a" },
-  { ten: "Văn Phúc", loiCamOn: :"cảm ơn văn Phúc!", audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/v%C4%83n%20ph%C3%BAc.m4a" },
-  { ten: "Gia Bảo",   loiCamOn: "Con cảm ơn bố Gia Bảo!",   audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20b%E1%BA%A3o.m4a" },
-  { ten: "Khôi Nguyên",   loiCamOn: "Con cảm ơn bố Khôi Nguyên!",   audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20kh%C3%B4i%20nguy%C3%AAn.m4a" },
-  { ten: "Ngọc Nguyên",    loiCamOn: "Con cảm ơn bố Ngọc Nguyên!",    audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20ng%E1%BB%8Dc%20nguy%C3%AAn.m4a" }
-  { ten: "Hồng Phong",    loiCamOn: "Con cảm ơn bố Hồng Phong!",    audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20phong.m4a" }
-  { ten: "Tín Đạt",    loiCamOn: "Con cảm ơn bố Tín Đạt!",    audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20t%C3%ADn%20%C4%91%E1%BA%A1t.m4a" }
-  { ten: "Hoàng Long",    loiCamOn: "Con cảm ơn bố Hoàng Long!",    audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/con%20c%E1%BA%A3m%20%C6%A1n%20b%E1%BB%91%20ho%C3%A0ng%20long.m4a" } 
+  { ten: "Bảo Huy",      loiCamOn: "cảm ơn anh Bảo Huy!",       audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b.huy%5D.m4a" },
+  { ten: "Hoàng Duy",    loiCamOn: "cảm ơn anh Hoàng Duy!",     audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/duy.m4a" },
+  { ten: "Huy Hoàng",    loiCamOn: "cảm ơn anh Huy Hoàng!",     audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/ho%C3%A0ng.m4a" },
+  { ten: "Hải Minh",     loiCamOn: "cảm ơn anh Hải Minh!",      audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/minh.m4a" },
+  { ten: "Quý Vương",    loiCamOn: "cảm ơn anh Quý Vương!",     audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/qu%C3%BD%20v%C6%B0%C6%A1ng'.m4a" },
+  { ten: "Kim Thái",     loiCamOn: "cảm ơn anh Kim Thái!",      audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/th%C3%A1i.m4a" },
+  { ten: "Văn Phúc",     loiCamOn: "cảm ơn anh Văn Phúc!",      audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/v%C4%83n%20ph%C3%BAc.m4a" },
+  { ten: "Gia Bảo",      loiCamOn: "Con cảm ơn bố Gia Bảo!",    audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20b%E1%BA%A3o.m4a" },
+  { ten: "Khôi Nguyên",  loiCamOn: "Con cảm ơn bố Khôi Nguyên!", audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20kh%C3%B4i%20nguy%C3%AAn.m4a" },
+  { ten: "Ngọc Nguyên",  loiCamOn: "Con cảm ơn bố Ngọc Nguyên!", audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20ng%E1%BB%8Dc%20nguy%C3%AAn.m4a" },
+  { ten: "Hồng Phong",   loiCamOn: "Con cảm ơn bố Hồng Phong!",  audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20phong.m4a" },
+  { ten: "Tín Đạt",      loiCamOn: "Con cảm ơn bố Tín Đạt!",     audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20t%C3%ADn%20%C4%91%E1%BA%A1t.m4a" },
+  { ten: "Hoàng Long",   loiCamOn: "Con cảm ơn bố Hoàng Long!",  audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/con%20c%E1%BA%A3m%20%C6%A1n%20b%E1%BB%91%20ho%C3%A0ng%20long.m4a" }
 ];
 
 /* ---------- 5. LỜI TÂM SỰ (from Chương) ---------- */
@@ -1187,7 +1188,7 @@ const btnStopAll   = document.getElementById("btn-stop-all");
 const statusEl     = document.getElementById("play-all-status");
 const totalVoiceEl = document.getElementById("total-voice");
 
-/* Lấy danh sách voice có audio thật (bỏ qua cái chưa có link) */
+/* Lấy danh sách voice có audio thật */
 const playableVoices = camOnList.filter(v => v.audio && v.audio.trim() !== "");
 
 totalVoiceEl.textContent = playableVoices.length;
@@ -1231,23 +1232,22 @@ if (!camOnList || camOnList.length === 0) {
   }).join("");
 }
 
-/* Lấy lại các element sau khi render */
+/* Helper lấy element */
 const allAudioEls = () => Array.from(document.querySelectorAll('#cam-on-list audio'));
 const allCards    = () => Array.from(document.querySelectorAll('#cam-on-list .cam-on-card'));
 
-/* ----- Biến điều khiển "Phát tất cả" ----- */
+/* Biến điều khiển "Phát tất cả" */
 let isPlayingAll = false;
-let currentAllIndex = -1;   // index trong playableVoices
+let currentAllIndex = -1;
 let currentAudioRef = null;
 
-/* Cập nhật giao diện: highlight card đang phát */
+/* Highlight card đang phát */
 function highlightCard(audioIndex) {
   allCards().forEach(c => c.classList.remove("is-playing"));
   if (audioIndex >= 0) {
     const card = document.querySelector(`.cam-on-card[data-card-index="${audioIndex}"]`);
     if (card) {
       card.classList.add("is-playing");
-      // cuộn tới card đang phát (chỉ khi đang phát all)
       if (isPlayingAll) {
         card.scrollIntoView({ behavior: "smooth", block: "center" });
       }
@@ -1255,13 +1255,13 @@ function highlightCard(audioIndex) {
   }
 }
 
-/* Cập nhật status */
+/* Status */
 function setStatus(text, playing = false) {
   statusEl.innerHTML = text;
   statusEl.classList.toggle("playing", playing);
 }
 
-/* Reset về trạng thái ban đầu */
+/* Reset UI */
 function resetUI() {
   isPlayingAll = false;
   currentAllIndex = -1;
@@ -1272,7 +1272,7 @@ function resetUI() {
   setStatus(`Sẵn sàng phát <b>${playableVoices.length}</b> voice`);
 }
 
-/* Dừng phát tất cả (không reset UI hoàn toàn, chỉ dừng) */
+/* Dừng phát tất cả */
 function stopPlayAll(silent = false) {
   if (currentAudioRef) {
     currentAudioRef.pause();
@@ -1288,7 +1288,6 @@ function stopPlayAll(silent = false) {
 /* Phát voice thứ N trong danh sách "có audio thật" */
 function playVoiceAt(idx) {
   if (idx >= playableVoices.length) {
-    // Hết danh sách
     stopPlayAll(true);
     setStatus(`✅ Đã phát xong tất cả <b>${playableVoices.length}</b> voice!`);
     btnPlayAll.innerHTML = "▶ Phát lại tất cả";
@@ -1297,7 +1296,6 @@ function playVoiceAt(idx) {
 
   currentAllIndex = idx;
 
-  // Tìm audio element của voice này (theo tên trong camOnList)
   const target = playableVoices[idx];
   const realIndex = camOnList.findIndex(v => v.audio === target.audio && v.ten === target.ten);
   if (realIndex === -1) { playVoiceAt(idx + 1); return; }
@@ -1307,71 +1305,54 @@ function playVoiceAt(idx) {
 
   currentAudioRef = audioEl;
 
-  // Reset mọi audio khác
   allAudioEls().forEach(a => { if (a !== audioEl) { a.pause(); a.currentTime = 0; } });
-
-  // Highlight card
   highlightCard(realIndex);
-
-  // Cập nhật status
   setStatus(`🔊 Đang phát <b>${idx + 1}/${playableVoices.length}</b>: ${target.ten}`, true);
 
-  // Gắn sự kiện "kết thúc thì phát bài tiếp"
   audioEl.onended = () => {
     if (isPlayingAll) {
-      // đợi 600ms cho tự nhiên rồi phát bài kế
-      setTimeout(() => {
-        if (isPlayingAll) playVoiceAt(idx + 1);
-      }, 600);
+      setTimeout(() => { if (isPlayingAll) playVoiceAt(idx + 1); }, 600);
     }
   };
 
-  // Phát (bắt lỗi autoplay)
   const playPromise = audioEl.play();
   if (playPromise && playPromise.catch) {
     playPromise.catch(err => {
       console.warn("Không phát được voice:", err);
       setStatus(`⚠️ Lỗi phát voice của <b>${target.ten}</b> — bỏ qua...`);
-      // tự chuyển sang bài kế
       setTimeout(() => { if (isPlayingAll) playVoiceAt(idx + 1); }, 800);
     });
   }
 }
 
-/* ----- Sự kiện nút "Phát tất cả" ----- */
+/* Nút "Phát tất cả" */
 btnPlayAll.addEventListener("click", () => {
   if (playableVoices.length === 0) {
     setStatus(`⚠️ Chưa có voice nào để phát.`);
     return;
   }
 
-  // Nếu đang phát dở → bấm lại = phát lại từ đầu
   isPlayingAll = true;
   btnPlayAll.innerHTML = "▶ Đang phát...";
   btnStopAll.disabled = false;
 
-  // Nếu đang có bài dở, dừng lại
   allAudioEls().forEach(a => { a.pause(); a.currentTime = 0; });
 
   playVoiceAt(0);
 });
 
-/* ----- Sự kiện nút "Dừng" ----- */
+/* Nút "Dừng" */
 btnStopAll.addEventListener("click", () => {
   stopPlayAll();
 });
 
-/* ----- Khi user tự bấm play/stop từng audio riêng lẻ ----- */
+/* Xử lý khi user bấm play/stop từng audio riêng lẻ */
 allAudioEls().forEach(audio => {
   audio.addEventListener("play", () => {
-    // Nếu KHÔNG phải đang trong chế độ phát tất cả
     if (!isPlayingAll) {
-      // thì dừng tất cả các audio khác
       allAudioEls().forEach(a => { if (a !== audio) { a.pause(); a.currentTime = 0; } });
       highlightCard(parseInt(audio.dataset.index));
     } else {
-      // Trong chế độ phát all mà user bấm lung tung → cập nhật lại index hiện tại
-      // để khi bài hiện tại kết thúc, vẫn đi tiếp đúng
       const realIdx = parseInt(audio.dataset.index);
       const target = camOnList[realIdx];
       const newAllIdx = playableVoices.findIndex(v => v.audio === target.audio && v.ten === target.ten);
@@ -1391,7 +1372,7 @@ allAudioEls().forEach(audio => {
   });
 });
 
-/* ----- Click nút play tròn vàng (riêng từng bài) ----- */
+/* Nút play tròn vàng riêng từng bài */
 document.querySelectorAll('#cam-on-list .play-icon[data-audio-id]').forEach(btn => {
   btn.addEventListener("click", () => {
     const audioId = btn.dataset.audioId;
@@ -1399,7 +1380,6 @@ document.querySelectorAll('#cam-on-list .play-icon[data-audio-id]').forEach(btn 
     if (!audioEl) return;
 
     if (audioEl.paused) {
-      // Nếu đang phát all → tắt chế độ phát all khi bấm play riêng
       if (isPlayingAll) {
         isPlayingAll = false;
         btnPlayAll.innerHTML = "▶ Phát tất cả";
@@ -1415,7 +1395,7 @@ document.querySelectorAll('#cam-on-list .play-icon[data-audio-id]').forEach(btn 
   });
 });
 
-/* Cập nhật icon nút play tròn khi audio tự play/pause */
+/* Đồng bộ icon nút play tròn */
 allAudioEls().forEach(audio => {
   const idx = audio.dataset.index;
   const btn = document.querySelector(`.play-icon[data-audio-id="audio-camon-${idx}"]`);
