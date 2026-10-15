@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thánh Chỉ 20 Tháng 10</title>
-<meta name="description" content="Thánh Chỉ 20/10 - Bảng nạp chi tiết, bảng nạp mới, đua top nạp và lời tâm sự.">
+<meta name="description" content="Thánh Chỉ 20/10 - Bảng nạp chi tiết, bảng nạp mới, đua top nạp, ưu đãi và lời tâm sự.">
 <style>
   :root{
     --gold:#f5c451;
@@ -221,7 +221,18 @@
     border-color:#f5c451;
     box-shadow:0 0 12px rgba(245,196,81,.45);
   }
-  
+  .b-prime-promax{
+    background:linear-gradient(135deg,#ff2d95,#f5c451,#00e5ff);
+    color:#1a0008;
+    border-color:#ffe9a8;
+    box-shadow:0 0 18px rgba(255,45,149,.55), 0 0 28px rgba(0,229,255,.35);
+    animation:promaxGlow 2.4s ease-in-out infinite alternate;
+  }
+  @keyframes promaxGlow{
+    from{box-shadow:0 0 14px rgba(255,45,149,.5), 0 0 22px rgba(0,229,255,.25)}
+    to{box-shadow:0 0 22px rgba(255,45,149,.85), 0 0 34px rgba(0,229,255,.55)}
+  }
+
   /* Badge tùy chỉnh cho các cấp bậc đặc biệt */
   .b-laybo {
     background: rgba(139, 26, 26, .3);
@@ -251,6 +262,117 @@
   }
 
   .money{font-weight:700;color:#7dffb0;white-space:nowrap}
+
+  /* ================= ƯU ĐÃI ================= */
+  .uu-dai-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:18px;
+  }
+
+  .uu-dai-card{
+    position:relative;
+    background:linear-gradient(180deg,rgba(245,196,81,.06),rgba(245,196,81,.02));
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px 18px 22px;
+    transition:.28s;
+    overflow:hidden;
+  }
+
+  .uu-dai-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:14px;
+    padding:1px;
+    background:linear-gradient(135deg,transparent,rgba(245,196,81,.35),transparent);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    pointer-events:none;
+    opacity:.6;
+  }
+
+  .uu-dai-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(245,196,81,.18);
+  }
+
+  .uu-dai-card h3{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:16px;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px dashed var(--border);
+  }
+
+  .uu-dai-card ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+
+  .uu-dai-card li{
+    position:relative;
+    padding-left:24px;
+    font-size:14px;
+    line-height:1.6;
+    color:var(--text);
+  }
+
+  .uu-dai-card li::before{
+    content:"✦";
+    position:absolute;
+    left:0;
+    top:0;
+    color:var(--gold);
+    font-size:13px;
+  }
+
+  .uu-dai-card li b{color:#ffd76e}
+
+  .uu-dai-card .highlight-li{
+    background:rgba(245,196,81,.1);
+    border-left:3px solid var(--gold);
+    border-radius:6px;
+    padding:6px 10px 6px 22px;
+    margin-left:-4px;
+  }
+  .uu-dai-card .highlight-li::before{left:8px}
+
+  .uu-dai-card.prime-promax{
+    background:linear-gradient(160deg,rgba(255,45,149,.12),rgba(0,229,255,.08),rgba(245,196,81,.08));
+    border-color:rgba(255,45,149,.45);
+  }
+  .uu-dai-card.prime-promax h3{color:#ffe9a8;text-shadow:0 0 12px rgba(255,45,149,.5)}
+
+  .uu-dai-tag{
+    display:inline-block;
+    margin-top:14px;
+    padding:5px 12px;
+    border-radius:999px;
+    font-size:11.5px;
+    font-weight:800;
+    letter-spacing:.6px;
+    text-transform:uppercase;
+    background:rgba(245,196,81,.12);
+    color:var(--gold);
+    border:1px solid var(--border);
+  }
+  .prime-promax .uu-dai-tag{
+    background:linear-gradient(135deg,#ff2d95,#00e5ff);
+    color:#0a0010;
+    border-color:#ffe9a8;
+  }
 
   /* ================= LỜI TÂM SỰ ================= */
   .tam-su-list{
@@ -425,7 +547,7 @@
 <header class="hero">
   <div class="seal">敕</div>
   <h1>Thánh Chỉ 20 Tháng 10</h1>
-  <p>Bảng phong thần · Nạp chi tiết · Đua top nạp · Lời tâm sự</p>
+  <p>Bảng phong thần · Nạp chi tiết · Đua top nạp · Ưu đãi · Lời tâm sự</p>
   <div class="divider"></div>
 </header>
 
@@ -433,6 +555,7 @@
   <a href="#nap-chi-tiet">📜 Nạp chi tiết</a>
   <a href="#bang-nap-moi">💎 Bảng nạp mới</a>
   <a href="#dua-top">🏆 Đua top nạp</a>
+  <a href="#uu-dai">🎁 Ưu đãi</a>
   <a href="#nap-thoi-han">💰 Nạp & thời hạn</a>
   <a href="#tam-su">💌 Lời tâm sự</a>
 </nav>
@@ -496,7 +619,92 @@
     </div>
   </section>
 
-  <!-- ============ PHẦN 4: NẠP & THỜI HẠN ============ -->
+  <!-- ============ PHẦN 4: ƯU ĐÃI ============ -->
+  <section class="card" id="uu-dai">
+    <h2><span class="icon">🎁</span> Ưu Đãi Theo Cấp Bậc (VIP, Prime)</h2>
+    <p class="note">Chi tiết quyền lợi dành cho từng cấp bậc khi nạp.</p>
+
+    <div class="uu-dai-list">
+
+      <!-- VIP 1 -->
+      <div class="uu-dai-card">
+        <h3><span>🥉</span> VIP 1 — 16.000đ</h3>
+        <ul>
+          <li>Được nghe <b>Chương voice tên anh &lt;tên bạn&gt;</b>.</li>
+        </ul>
+        <span class="uu-dai-tag">Gói khởi đầu</span>
+      </div>
+
+      <!-- VIP 2 -->
+      <div class="uu-dai-card">
+        <h3><span>🥈</span> VIP 2 — 17.000đ</h3>
+        <ul>
+          <li>Được nghe <b>Chương voice tên anh &lt;tên bạn&gt;</b>.</li>
+          <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
+        </ul>
+        <span class="uu-dai-tag">Có quà 20/10</span>
+      </div>
+
+      <!-- VIP 3 -->
+      <div class="uu-dai-card">
+        <h3><span>🥇</span> VIP 3 — 18.000đ</h3>
+        <ul>
+          <li>Được nghe <b>Chương voice tên anh &lt;tên bạn&gt;</b>.</li>
+          <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
+          <li class="highlight-li">
+            Được <b>miễn 2 lần ghi tên phạt</b> trên bảng
+            <br><em>(nhận 2 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 4 lần).</em>
+          </li>
+        </ul>
+        <span class="uu-dai-tag">Miễn phạt 2 lần/tuần</span>
+      </div>
+
+      <!-- VIP 4 -->
+      <div class="uu-dai-card">
+        <h3><span>👑</span> VIP 4 — 19.000đ</h3>
+        <ul>
+          <li>Được nghe <b>Chương voice tên anh &lt;tên bạn&gt;</b>.</li>
+          <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
+          <li class="highlight-li">
+            Được <b>miễn 4 lần ghi tên phạt</b> trên bảng
+            <br><em>(nhận 4 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 8 lần).</em>
+          </li>
+        </ul>
+        <span class="uu-dai-tag">Miễn phạt 4 lần/tuần</span>
+      </div>
+
+      <!-- PRIME -->
+      <div class="uu-dai-card">
+        <h3><span>💎</span> Prime — 20.000đ</h3>
+        <ul>
+          <li>Được nghe <b>Chương voice tên bố &lt;tên bạn&gt;</b>.</li>
+          <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
+          <li class="highlight-li">
+            Được <b>miễn 5 lần ghi tên phạt</b> trên bảng
+            <br><em>(nhận 5 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 10 lần).</em>
+          </li>
+        </ul>
+        <span class="uu-dai-tag">Đỉnh cao — voice tên bố</span>
+      </div>
+
+      <!-- PRIME PROMAX -->
+      <div class="uu-dai-card prime-promax">
+        <h3><span>🚀</span> Prime Promax — 25.000đ trở lên</h3>
+        <ul>
+          <li>Được nghe <b>Chương voice tên bố &lt;tên bạn&gt;</b>.</li>
+          <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
+          <li class="highlight-li">
+            Được <b>miễn 7 lần ghi tên phạt</b> trên bảng
+            <br><em>(nhận 7 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 14 lần).</em>
+          </li>
+        </ul>
+        <span class="uu-dai-tag">🔥 Cấp bậc tối thượng</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ PHẦN 5: NẠP & THỜI HẠN ============ -->
   <section class="card" id="nap-thoi-han">
     <h2><span class="icon">💰</span> Nạp & Thời Hạn</h2>
     <p class="note">Thông tin nạp tiền và thời hạn áp dụng.</p>
@@ -531,7 +739,7 @@
     </div>
   </section>
 
-  <!-- ============ PHẦN 5: LỜI TÂM SỰ ============ -->
+  <!-- ============ PHẦN 6: LỜI TÂM SỰ ============ -->
   <section class="card" id="tam-su">
     <h2><span class="icon">💌</span> Lời Tâm Sự (from Chương)</h2>
     <p class="note">Những lời nhắn gửi từ Chương 9/12.</p>
@@ -584,27 +792,27 @@ const danhSachNap = [
 
 /* ---------- 2. BẢNG NẠP MỚI ---------- */
 const bangNapMoi = [
-  { capBac: "Phổ thông", mucNap: 15000,  ghiChu: "Gói cơ bản" },
-  { capBac: "VIP 1",     mucNap: 16000,  ghiChu: "Ưu đãi nhẹ" },
-  { capBac: "VIP 2",     mucNap: 17000,  ghiChu: "Ưu đãi vừa" },
-  { capBac: "VIP 3",     mucNap: 18000,  ghiChu: "Ưu đãi khá" },
-  { capBac: "VIP 4",     mucNap: 19000,  ghiChu: "Ưu đãi cao" },
-  { capBac: "Prime",     mucNap: 20000,  ghiChu: "20k đổ lên — cao cấp nhất" }
+  { capBac: "Phổ thông",    mucNap: 15000, ghiChu: "Gói cơ bản" },
+  { capBac: "VIP 1",        mucNap: 16000, ghiChu: "Ưu đãi nhẹ" },
+  { capBac: "VIP 2",        mucNap: 17000, ghiChu: "Ưu đãi vừa" },
+  { capBac: "VIP 3",        mucNap: 18000, ghiChu: "Ưu đãi khá" },
+  { capBac: "VIP 4",        mucNap: 19000, ghiChu: "Ưu đãi cao" },
+  { capBac: "Prime",        mucNap: 20000, ghiChu: "20k — cao cấp" },
+  { capBac: "Prime Promax", mucNap: 25000, ghiChu: "25k đổ lên — tối thượng" }
 ];
 
 /* ---------- 3. BẢNG ĐUA TOP NẠP ---------- */
-/* Đã sửa lỗi cú pháp: thay ... bằng số 0 và chữ ... */
 const duaTop = [
-  { ten: "Gia Bảo", soTien: 20000, capBac: "Prime" },
+  { ten: "Gia Bảo",     soTien: 20000, capBac: "Prime" },
   { ten: "Viết Chương", soTien: 20000, capBac: "Prime" },
   { ten: "Ngọc Nguyên", soTien: 20000, capBac: "Prime" },
-  { ten: "Quý Vương", soTien: 16000, capBac: "VIP 1" },
-  { ten: "Tín Đạt", soTien: 16000, capBac: "VIP 1" },
-  { ten: "Huy Hoàng", soTien: 16000, capBac: "VIP 1" },
-  { ten: ".........", soTien: 0,  capBac: "..." },
-  { ten: ".........", soTien: 0,  capBac: "..." },
-  { ten: ".........", soTien: 0,  capBac: "..." },
-  { ten: ".........", soTien: 0,  capBac: "..." }
+  { ten: "Quý Vương",   soTien: 16000, capBac: "VIP 1" },
+  { ten: "Tín Đạt",     soTien: 16000, capBac: "VIP 1" },
+  { ten: "Huy Hoàng",   soTien: 16000, capBac: "VIP 1" },
+  { ten: ".........",    soTien: 0,     capBac: "..." },
+  { ten: ".........",    soTien: 0,     capBac: "..." },
+  { ten: ".........",    soTien: 0,     capBac: "..." },
+  { ten: ".........",    soTien: 0,     capBac: "..." }
 ];
 
 /* ---------- 4. LỜI TÂM SỰ (from Chương) ---------- */
@@ -642,6 +850,7 @@ const BADGE_MAP = {
   "vip 3": "b-vip3",
   "vip 4": "b-vip4",
   "prime": "b-prime",
+  "prime promax": "b-prime-promax",
   "lạy bố": "b-laybo",
   "lỏ vãi": "b-lovai"
 };
@@ -666,11 +875,12 @@ document.querySelector("#tb-nap-chi-tiet tbody").innerHTML = danhSachNap.map((r,
 `).join("");
 
 /* ----- Render bảng 2: Bảng nạp mới ----- */
+/* Chỉ "Prime Promax" mới có "đổ lên", còn "Prime" chỉ là 20.000đ */
 document.querySelector("#tb-bang-nap tbody").innerHTML = bangNapMoi.map((r, i) => `
   <tr>
     <td class="stt">${i + 1}</td>
     <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
-    <td class="price">${formatTien(r.mucNap)}${r.capBac === "Prime" ? " đổ lên" : ""}</td>
+    <td class="price">${formatTien(r.mucNap)}${r.capBac === "Prime Promax" ? " đổ lên" : ""}</td>
     <td>${r.ghiChu}</td>
   </tr>
 `).join("");
