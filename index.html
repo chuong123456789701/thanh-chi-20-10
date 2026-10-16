@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thánh Chỉ 20 Tháng 10</title>
-<meta name="description" content="Thánh Chỉ 20/10 - Bảng nạp chi tiết, bảng nạp mới, đua top nạp, ưu đãi, voice cảm ơn và lời tâm sự.">
+<meta name="description" content="Thánh Chỉ 20/10 - Bảng nạp chi tiết, bảng nạp mới, đua top nạp, ưu đãi và lời tâm sự.">
 <style>
   :root{
     --gold:#f5c451;
@@ -454,265 +454,6 @@
     border-color:#ffe9a8;
   }
 
-  /* ================= VOICE CẢM ƠN ================= */
-  .cam-on-toolbar{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:12px;
-    margin-bottom:20px;
-    padding:14px 16px;
-    background:linear-gradient(135deg,rgba(184,38,43,.22),rgba(245,196,81,.08));
-    border:1px solid var(--border);
-    border-radius:14px;
-  }
-
-  .btn-play-all{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:11px 22px;
-    font-size:14.5px;
-    font-weight:800;
-    letter-spacing:.5px;
-    text-transform:uppercase;
-    color:#2b1002;
-    background:linear-gradient(135deg,var(--gold),var(--gold-2));
-    border:1px solid #ffe9a8;
-    border-radius:999px;
-    cursor:pointer;
-    transition:.22s;
-    white-space:nowrap;
-    box-shadow:0 4px 14px rgba(245,196,81,.35);
-    font-family:inherit;
-  }
-
-  .btn-play-all:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 22px rgba(245,196,81,.55);
-  }
-
-  .btn-play-all:active{transform:translateY(0)}
-
-  .btn-stop-all{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:11px 22px;
-    font-size:14.5px;
-    font-weight:800;
-    letter-spacing:.5px;
-    text-transform:uppercase;
-    color:#ffd0d0;
-    background:linear-gradient(135deg,rgba(184,38,43,.55),rgba(109,15,18,.55));
-    border:1px solid rgba(255,107,107,.55);
-    border-radius:999px;
-    cursor:pointer;
-    transition:.22s;
-    white-space:nowrap;
-    font-family:inherit;
-  }
-
-  .btn-stop-all:hover{
-    background:linear-gradient(135deg,#b8262b,#6d0f12);
-    color:#fff;
-    transform:translateY(-2px);
-    box-shadow:0 8px 22px rgba(184,38,43,.55);
-  }
-
-  .btn-stop-all:disabled{
-    opacity:.35;
-    cursor:not-allowed;
-    transform:none;
-    box-shadow:none;
-  }
-
-  .play-all-status{
-    flex:1;
-    min-width:180px;
-    font-size:13.5px;
-    color:var(--muted);
-    font-style:italic;
-    text-align:right;
-  }
-
-  .play-all-status b{color:#ffd76e;font-style:normal}
-
-  .play-all-status.playing b{color:#7dffb0}
-
-  @media (max-width:520px){
-    .play-all-status{text-align:left}
-    .btn-play-all,.btn-stop-all{padding:10px 16px;font-size:13px;flex:1;justify-content:center}
-  }
-
-  .cam-on-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:18px;
-  }
-
-  .cam-on-card{
-    position:relative;
-    background:linear-gradient(160deg,rgba(184,38,43,.18),rgba(245,196,81,.06));
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:18px 18px 20px;
-    transition:.28s;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    overflow:hidden;
-  }
-
-  .cam-on-card::after{
-    content:"";
-    position:absolute;
-    top:-30px;right:-30px;
-    width:90px;height:90px;
-    background:radial-gradient(circle,rgba(245,196,81,.25),transparent 70%);
-    pointer-events:none;
-  }
-
-  .cam-on-card:hover{
-    transform:translateY(-4px);
-    border-color:rgba(245,196,81,.55);
-    box-shadow:0 12px 30px rgba(184,38,43,.28);
-  }
-
-  /* Card đang phát */
-  .cam-on-card.is-playing{
-    border-color:var(--gold);
-    background:linear-gradient(160deg,rgba(245,196,81,.22),rgba(184,38,43,.22));
-    box-shadow:0 0 0 2px rgba(245,196,81,.4), 0 14px 34px rgba(245,196,81,.35);
-    transform:translateY(-4px) scale(1.015);
-    animation:playingPulse 1.6s ease-in-out infinite alternate;
-  }
-  @keyframes playingPulse{
-    from{box-shadow:0 0 0 2px rgba(245,196,81,.4), 0 14px 34px rgba(245,196,81,.3)}
-    to{box-shadow:0 0 0 3px rgba(245,196,81,.75), 0 14px 40px rgba(245,196,81,.5)}
-  }
-
-  .cam-on-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-    padding-bottom:10px;
-    border-bottom:1px dashed var(--border);
-  }
-
-  .cam-on-head .name{
-    font-size:16px;
-    font-weight:800;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-
-  .cam-on-head .name .mic{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:30px;height:30px;
-    border-radius:50%;
-    background:linear-gradient(145deg,#b8262b,#6d0f12);
-    border:1px solid var(--gold);
-    font-size:15px;
-    box-shadow:0 0 10px rgba(245,196,81,.35);
-    transition:.25s;
-  }
-
-  .cam-on-card.is-playing .cam-on-head .name .mic{
-    animation:micBounce 0.9s ease-in-out infinite;
-    box-shadow:0 0 18px rgba(245,196,81,.85);
-  }
-  @keyframes micBounce{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.18)}
-  }
-
-  .cam-on-badge-now{
-    display:none;
-    padding:3px 10px;
-    border-radius:999px;
-    font-size:10.5px;
-    font-weight:800;
-    letter-spacing:.6px;
-    text-transform:uppercase;
-    background:linear-gradient(135deg,var(--gold),var(--gold-2));
-    color:#2b1002;
-    animation:badgeBlink 1s ease-in-out infinite alternate;
-  }
-  .cam-on-card.is-playing .cam-on-badge-now{display:inline-block}
-  @keyframes badgeBlink{
-    from{opacity:.7}
-    to{opacity:1}
-  }
-
-  .cam-on-text{
-    font-size:14.5px;
-    color:var(--text);
-    line-height:1.7;
-    font-style:italic;
-    padding:10px 12px;
-    background:rgba(0,0,0,.25);
-    border-left:3px solid var(--gold);
-    border-radius:8px;
-  }
-
-  .cam-on-text b{color:#ffd76e;font-style:normal}
-
-  .cam-on-audio{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:rgba(0,0,0,.35);
-    border:1px solid var(--border);
-    border-radius:999px;
-    padding:8px 14px;
-  }
-
-  .cam-on-audio .play-icon{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:34px;height:34px;
-    flex-shrink:0;
-    border-radius:50%;
-    background:linear-gradient(135deg,var(--gold),var(--gold-2));
-    color:#2b1002;
-    font-size:15px;
-    font-weight:900;
-    cursor:pointer;
-    transition:.2s;
-    user-select:none;
-  }
-
-  .cam-on-audio .play-icon:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 14px rgba(245,196,81,.55);
-  }
-
-  .cam-on-audio audio{
-    flex:1;
-    height:34px;
-    filter:sepia(.4) hue-rotate(-15deg) saturate(1.3) brightness(.95);
-    min-width:0;
-  }
-
-  .cam-on-empty{
-    text-align:center;
-    padding:34px 18px;
-    color:var(--muted);
-    font-style:italic;
-    font-size:14px;
-    border:1px dashed var(--border);
-    border-radius:12px;
-    background:rgba(245,196,81,.03);
-  }
-
   /* ================= LỜI TÂM SỰ ================= */
   .tam-su-list{
     display:flex;
@@ -878,7 +619,6 @@
     table{font-size:13.5px;min-width:480px}
     thead th,tbody td{padding:10px 8px}
     .nav a{font-size:12.5px;padding:8px 13px}
-    .cam-on-audio audio{height:30px}
   }
 </style>
 </head>
@@ -887,7 +627,7 @@
 <header class="hero">
   <div class="seal">敕</div>
   <h1>Thánh Chỉ 20 Tháng 10</h1>
-  <p>Bảng phong thần · Nạp chi tiết · Đua top nạp · Ưu đãi · Voice cảm ơn · Lời tâm sự</p>
+  <p>Bảng phong thần · Nạp chi tiết · Đua top nạp · Ưu đãi · Lời tâm sự</p>
   <div class="divider"></div>
 </header>
 
@@ -896,7 +636,6 @@
   <a href="#bang-nap-moi">💎 Bảng nạp mới</a>
   <a href="#dua-top">🏆 Đua top nạp</a>
   <a href="#uu-dai">🎁 Ưu đãi</a>
-  <a href="#tra-keo">🎤 Voice cảm ơn</a>
   <a href="#nap-thoi-han">💰 Nạp & thời hạn</a>
   <a href="#tam-su">💌 Lời tâm sự</a>
 </nav>
@@ -1055,30 +794,7 @@
     </div>
   </section>
 
-  <!-- ============ PHẦN 5: VOICE CẢM ƠN ============ -->
-  <section class="card" id="tra-keo">
-    <h2><span class="icon">🎤</span> Voice Cảm Ơn Từ Chương</h2>
-    <p class="note">Chương gửi lời cảm ơn riêng tới từng người — bấm Play từng cái, hoặc bấm "Phát tất cả" để nghe liên tục.</p>
-
-    <!-- Thanh điều khiển -->
-    <div class="cam-on-toolbar">
-      <button class="btn-play-all" id="btn-play-all" type="button">
-        ▶ Phát tất cả
-      </button>
-      <button class="btn-stop-all" id="btn-stop-all" type="button" disabled>
-        ⏹ Dừng
-      </button>
-      <div class="play-all-status" id="play-all-status">
-        Sẵn sàng phát <b id="total-voice">0</b> voice
-      </div>
-    </div>
-
-    <div class="cam-on-list" id="cam-on-list">
-      <!-- JS render -->
-    </div>
-  </section>
-
-  <!-- ============ PHẦN 6: NẠP & THỜI HẠN ============ -->
+  <!-- ============ PHẦN 5: NẠP & THỜI HẠN ============ -->
   <section class="card" id="nap-thoi-han">
     <h2><span class="icon">💰</span> Nạp & Thời Hạn</h2>
     <p class="note">Thông tin nạp tiền và thời hạn áp dụng.</p>
@@ -1109,7 +825,7 @@
     </div>
   </section>
 
-  <!-- ============ PHẦN 7: LỜI TÂM SỰ ============ -->
+  <!-- ============ PHẦN 6: LỜI TÂM SỰ ============ -->
   <section class="card" id="tam-su">
     <h2><span class="icon">💌</span> Lời Tâm Sự (from Chương)</h2>
     <p class="note">Những lời nhắn gửi từ Chương 9/12.</p>
@@ -1185,28 +901,7 @@ const duaTop = [
   { ten: "Hải Minh",    soTien: 17000, capBac: "VIP 2" }
 ];
 
-/* ---------- 4. VOICE CẢM ƠN CỦA CHƯƠNG ----------
-   - ten: tên người được cảm ơn
-   - loiCamOn: câu Chương sẽ nói
-   - audio: LINK FILE VOICE
-------------------------------------------------- */
-const camOnList = [
-  { ten: "Bảo Huy",      loiCamOn: "cảm ơn anh Bảo Huy!",       audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b.huy%5D.m4a" },
-  { ten: "Hoàng Duy",    loiCamOn: "cảm ơn anh Hoàng Duy!",     audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/duy.m4a" },
-  { ten: "Huy Hoàng",    loiCamOn: "cảm ơn anh Huy Hoàng!",     audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/ho%C3%A0ng.m4a" },
-  { ten: "Hải Minh",     loiCamOn: "cảm ơn anh Hải Minh!",      audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/minh.m4a" },
-  { ten: "Quý Vương",    loiCamOn: "cảm ơn anh Quý Vương!",     audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/qu%C3%BD%20v%C6%B0%C6%A1ng'.m4a" },
-  { ten: "Kim Thái",     loiCamOn: "cảm ơn anh Kim Thái!",      audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/th%C3%A1i.m4a" },
-  { ten: "Văn Phúc",     loiCamOn: "cảm ơn anh Văn Phúc!",      audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/v%C4%83n%20ph%C3%BAc.m4a" },
-  { ten: "Gia Bảo",      loiCamOn: "Con cảm ơn bố Gia Bảo!",    audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20b%E1%BA%A3o.m4a" },
-  { ten: "Khôi Nguyên",  loiCamOn: "Con cảm ơn bố Khôi Nguyên!", audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20kh%C3%B4i%20nguy%C3%AAn.m4a" },
-  { ten: "Ngọc Nguyên",  loiCamOn: "Con cảm ơn bố Ngọc Nguyên!", audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20ng%E1%BB%8Dc%20nguy%C3%AAn.m4a" },
-  { ten: "Hồng Phong",   loiCamOn: "Con cảm ơn bố Hồng Phong!",  audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20phong.m4a" },
-  { ten: "Tín Đạt",      loiCamOn: "Con cảm ơn bố Tín Đạt!",     audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/b%E1%BB%91%20t%C3%ADn%20%C4%91%E1%BA%A1t.m4a" },
-  { ten: "Hoàng Long",   loiCamOn: "Con cảm ơn bố Hoàng Long!",  audio: "https://github.com/chuong123456789701/thanh-chi-20-10/raw/refs/heads/main/con%20c%E1%BA%A3m%20%C6%A1n%20b%E1%BB%91%20ho%C3%A0ng%20long.m4a" }
-];
-
-/* ---------- 5. LỜI TÂM SỰ (from Chương) ---------- */
+/* ---------- 4. LỜI TÂM SỰ (from Chương) ---------- */
 const tamSuList = [
   { nguoiGui: "Chương 9/12", thoiGian: "20/10/2026", noiDung: "chúc tất cả anh anh em tốt bụng đã nạp lần đầu nhé!" },
   { nguoiGui: "Chương 9/12", thoiGian: "20/10/2026", noiDung: "Những ai đã nạp và ủng hộ Chương, Chương xin ghi nhận và biết ơn rất nhiều. Mong rằng mọi người luôn mạnh khỏe và thành công trong cuộc sống." },
@@ -1312,233 +1007,7 @@ document.querySelector("#tb-dua-top tbody").innerHTML = duaTop.map((r, i) => `
   </tr>
 `).join("");
 
-/* =========================================================
-   🎤 VOICE CẢM ƠN + PHÁT TẤT CẢ (tự động chuyển bài)
-   ========================================================= */
-const camOnListEl = document.getElementById("cam-on-list");
-const btnPlayAll   = document.getElementById("btn-play-all");
-const btnStopAll   = document.getElementById("btn-stop-all");
-const statusEl     = document.getElementById("play-all-status");
-const totalVoiceEl = document.getElementById("total-voice");
-
-/* Lấy danh sách voice có audio thật */
-const playableVoices = camOnList.filter(v => v.audio && v.audio.trim() !== "");
-
-totalVoiceEl.textContent = playableVoices.length;
-
-/* Render cards */
-if (!camOnList || camOnList.length === 0) {
-  camOnListEl.innerHTML = `<div class="cam-on-empty">🎤 Chưa có voice cảm ơn nào.</div>`;
-} else {
-  camOnListEl.innerHTML = camOnList.map((r, i) => {
-    let audioHTML = "";
-    if (r.audio && r.audio.trim() !== "") {
-      const audioId = `audio-camon-${i}`;
-      audioHTML = `
-        <div class="cam-on-audio">
-          <span class="play-icon" data-audio-id="${audioId}" data-index="${i}">▶</span>
-          <audio id="${audioId}" controls preload="none" src="${r.audio}" data-index="${i}"></audio>
-        </div>
-      `;
-    } else {
-      audioHTML = `
-        <div class="cam-on-audio">
-          <span class="play-icon" style="background:#444;color:#aaa;cursor:not-allowed;box-shadow:none">⏳</span>
-          <span style="font-size:13px;color:var(--muted);font-style:italic">Voice đang cập nhật...</span>
-        </div>
-      `;
-    }
-
-    return `
-      <div class="cam-on-card" data-card-index="${i}">
-        <div class="cam-on-head">
-          <span class="name">
-            <span class="mic">🎤</span>
-            ${r.ten}
-          </span>
-          <span class="cam-on-badge-now">🔊 Đang phát</span>
-        </div>
-        <div class="cam-on-text">🎙️ "${r.loiCamOn}"</div>
-        ${audioHTML}
-      </div>
-    `;
-  }).join("");
-}
-
-/* Helper lấy element */
-const allAudioEls = () => Array.from(document.querySelectorAll('#cam-on-list audio'));
-const allCards    = () => Array.from(document.querySelectorAll('#cam-on-list .cam-on-card'));
-
-/* Biến điều khiển "Phát tất cả" */
-let isPlayingAll = false;
-let currentAllIndex = -1;
-let currentAudioRef = null;
-
-/* Highlight card đang phát */
-function highlightCard(audioIndex) {
-  allCards().forEach(c => c.classList.remove("is-playing"));
-  if (audioIndex >= 0) {
-    const card = document.querySelector(`.cam-on-card[data-card-index="${audioIndex}"]`);
-    if (card) {
-      card.classList.add("is-playing");
-      if (isPlayingAll) {
-        card.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    }
-  }
-}
-
-/* Status */
-function setStatus(text, playing = false) {
-  statusEl.innerHTML = text;
-  statusEl.classList.toggle("playing", playing);
-}
-
-/* Reset UI */
-function resetUI() {
-  isPlayingAll = false;
-  currentAllIndex = -1;
-  currentAudioRef = null;
-  highlightCard(-1);
-  btnPlayAll.innerHTML = "▶ Phát tất cả";
-  btnStopAll.disabled = true;
-  setStatus(`Sẵn sàng phát <b>${playableVoices.length}</b> voice`);
-}
-
-/* Dừng phát tất cả */
-function stopPlayAll(silent = false) {
-  if (currentAudioRef) {
-    currentAudioRef.pause();
-    currentAudioRef.currentTime = 0;
-  }
-  allAudioEls().forEach(a => { a.pause(); a.currentTime = 0; });
-  resetUI();
-  if (!silent && playableVoices.length > 0) {
-    setStatus(`⏹ Đã dừng — Sẵn sàng phát <b>${playableVoices.length}</b> voice`);
-  }
-}
-
-/* Phát voice thứ N trong danh sách "có audio thật" */
-function playVoiceAt(idx) {
-  if (idx >= playableVoices.length) {
-    stopPlayAll(true);
-    setStatus(`✅ Đã phát xong tất cả <b>${playableVoices.length}</b> voice!`);
-    btnPlayAll.innerHTML = "▶ Phát lại tất cả";
-    return;
-  }
-
-  currentAllIndex = idx;
-
-  const target = playableVoices[idx];
-  const realIndex = camOnList.findIndex(v => v.audio === target.audio && v.ten === target.ten);
-  if (realIndex === -1) { playVoiceAt(idx + 1); return; }
-
-  const audioEl = document.getElementById(`audio-camon-${realIndex}`);
-  if (!audioEl) { playVoiceAt(idx + 1); return; }
-
-  currentAudioRef = audioEl;
-
-  allAudioEls().forEach(a => { if (a !== audioEl) { a.pause(); a.currentTime = 0; } });
-  highlightCard(realIndex);
-  setStatus(`🔊 Đang phát <b>${idx + 1}/${playableVoices.length}</b>: ${target.ten}`, true);
-
-  audioEl.onended = () => {
-    if (isPlayingAll) {
-      setTimeout(() => { if (isPlayingAll) playVoiceAt(idx + 1); }, 600);
-    }
-  };
-
-  const playPromise = audioEl.play();
-  if (playPromise && playPromise.catch) {
-    playPromise.catch(err => {
-      console.warn("Không phát được voice:", err);
-      setStatus(`⚠️ Lỗi phát voice của <b>${target.ten}</b> — bỏ qua...`);
-      setTimeout(() => { if (isPlayingAll) playVoiceAt(idx + 1); }, 800);
-    });
-  }
-}
-
-/* Nút "Phát tất cả" */
-btnPlayAll.addEventListener("click", () => {
-  if (playableVoices.length === 0) {
-    setStatus(`⚠️ Chưa có voice nào để phát.`);
-    return;
-  }
-
-  isPlayingAll = true;
-  btnPlayAll.innerHTML = "▶ Đang phát...";
-  btnStopAll.disabled = false;
-
-  allAudioEls().forEach(a => { a.pause(); a.currentTime = 0; });
-
-  playVoiceAt(0);
-});
-
-/* Nút "Dừng" */
-btnStopAll.addEventListener("click", () => {
-  stopPlayAll();
-});
-
-/* Xử lý khi user bấm play/stop từng audio riêng lẻ */
-allAudioEls().forEach(audio => {
-  audio.addEventListener("play", () => {
-    if (!isPlayingAll) {
-      allAudioEls().forEach(a => { if (a !== audio) { a.pause(); a.currentTime = 0; } });
-      highlightCard(parseInt(audio.dataset.index));
-    } else {
-      const realIdx = parseInt(audio.dataset.index);
-      const target = camOnList[realIdx];
-      const newAllIdx = playableVoices.findIndex(v => v.audio === target.audio && v.ten === target.ten);
-      if (newAllIdx !== -1) currentAllIndex = newAllIdx;
-      currentAudioRef = audio;
-      audio.onended = () => {
-        if (isPlayingAll) {
-          setTimeout(() => { if (isPlayingAll) playVoiceAt(currentAllIndex + 1); }, 600);
-        }
-      };
-    }
-  });
-  audio.addEventListener("ended", () => {
-    if (!isPlayingAll) {
-      highlightCard(-1);
-    }
-  });
-});
-
-/* Nút play tròn vàng riêng từng bài */
-document.querySelectorAll('#cam-on-list .play-icon[data-audio-id]').forEach(btn => {
-  btn.addEventListener("click", () => {
-    const audioId = btn.dataset.audioId;
-    const audioEl = document.getElementById(audioId);
-    if (!audioEl) return;
-
-    if (audioEl.paused) {
-      if (isPlayingAll) {
-        isPlayingAll = false;
-        btnPlayAll.innerHTML = "▶ Phát tất cả";
-        btnStopAll.disabled = true;
-      }
-      allAudioEls().forEach(a => { if (a !== audioEl) { a.pause(); a.currentTime = 0; } });
-      audioEl.play();
-      btn.textContent = "⏸";
-    } else {
-      audioEl.pause();
-      btn.textContent = "▶";
-    }
-  });
-});
-
-/* Đồng bộ icon nút play tròn */
-allAudioEls().forEach(audio => {
-  const idx = audio.dataset.index;
-  const btn = document.querySelector(`.play-icon[data-audio-id="audio-camon-${idx}"]`);
-  if (!btn) return;
-  audio.addEventListener("play",  () => { btn.textContent = "⏸"; });
-  audio.addEventListener("pause", () => { btn.textContent = "▶"; });
-  audio.addEventListener("ended", () => { btn.textContent = "▶"; });
-});
-
-/* ----- Render bảng 5: Lời tâm sự ----- */
+/* ----- Render bảng 4: Lời tâm sự ----- */
 document.getElementById("tam-su-list").innerHTML = tamSuList.map(t => `
   <div class="tam-su-item">
     <div class="tam-su-head">
