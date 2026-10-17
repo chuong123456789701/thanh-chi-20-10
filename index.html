@@ -33,6 +33,7 @@
     min-height:100vh;
     line-height:1.6;
     padding-bottom:40px;
+    overflow-x:hidden;
   }
 
   /* ================= HEADER ================= */
@@ -158,11 +159,13 @@
     overflow-x:auto;
     border-radius:12px;
     border:1px solid var(--border);
+    padding: 6px 0;
   }
 
   table{
     width:100%;
-    border-collapse:collapse;
+    border-collapse:separate;
+    border-spacing:0;
     min-width:560px;
     font-size:15px;
   }
@@ -183,10 +186,9 @@
     padding:12px;
     border-bottom:1px solid rgba(245,196,81,.09);
     vertical-align:middle;
+    position:relative;
   }
 
-  tbody tr:nth-child(even){background:rgba(255,255,255,.02)}
-  tbody tr:hover{background:rgba(245,196,81,.07)}
   tbody tr:last-child td{border-bottom:none}
 
   .stt{
@@ -195,8 +197,6 @@
     width:56px;
     text-align:center;
   }
-
-  .ten{font-weight:600;color:#fff}
 
   /* ================= TỔNG TIỀN ================= */
   .total-box{
@@ -272,13 +272,6 @@
     margin-top:2px;
   }
 
-  @media (max-width:520px){
-    .total-box{padding:14px 16px}
-    .total-label{font-size:13px}
-    .total-label .icon{width:32px;height:32px;font-size:15px}
-    .total-value{font-size:22px}
-  }
-
   /* ================= BADGE CẤP BẬC ================= */
   .badge{
     display:inline-block;
@@ -313,6 +306,20 @@
     from{box-shadow:0 0 14px rgba(255,45,149,.5), 0 0 22px rgba(0,229,255,.25)}
     to{box-shadow:0 0 22px rgba(255,45,149,.85), 0 0 34px rgba(0,229,255,.55)}
   }
+  .b-prime-ultra{
+    background:linear-gradient(90deg,#ffd700,#ff2d95,#00e5ff,#a855f7,#ffd700);
+    background-size:300% 100%;
+    color:#1a0008;
+    border-color:#fff8dc;
+    font-weight:900;
+    text-shadow:0 1px 2px rgba(255,255,255,.4);
+    box-shadow:0 0 20px rgba(255,215,0,.7), 0 0 34px rgba(255,45,149,.5), 0 0 44px rgba(0,229,255,.35);
+    animation:ultraBadgeMove 3s linear infinite;
+  }
+  @keyframes ultraBadgeMove{
+    0%{background-position:0% 50%}
+    100%{background-position:300% 50%}
+  }
 
   .b-laybo {
     background: rgba(139, 26, 26, .3);
@@ -328,10 +335,373 @@
   /* ================= GIÁ NẠP ================= */
   .price{font-weight:800;color:#ffd76e;font-size:16px;white-space:nowrap}
 
-  /* ================= LEADERBOARD ================= */
-  .top1 td{background:linear-gradient(90deg,rgba(245,196,81,.18),transparent)!important}
-  .top2 td{background:linear-gradient(90deg,rgba(192,192,192,.14),transparent)!important}
-  .top3 td{background:linear-gradient(90deg,rgba(205,127,50,.14),transparent)!important}
+  /* =========================================================
+     ★★★ AURA SYSTEM — LINH KHÍ BỐC RA TỪ TÊN ★★★
+     ========================================================= */
+
+  .aura-cell{
+    position:relative;
+    text-align:center;
+    padding:18px 12px !important;
+    vertical-align:middle !important;
+    overflow:visible !important;
+    background:transparent !important;
+  }
+
+  .aura-cell .ten{
+    position:relative;
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:12px;
+    font-weight:900;
+    font-size:14.5px;
+    letter-spacing:0.5px;
+    isolation:isolate;
+    z-index:1;
+    transition:transform .35s cubic-bezier(.2,.9,.4,1.4);
+    cursor:default;
+    white-space:nowrap;
+  }
+
+  .aura-cell .ten:hover{
+    transform:scale(1.12) translateY(-1px);
+  }
+
+  /* ==== QUẦNG SÁNG THỞ PHÍA SAU TÊN ==== */
+  .aura-cell .ten::before{
+    content:"";
+    position:absolute;
+    inset:-18px -26px;
+    border-radius:50%;
+    z-index:-2;
+    filter:blur(18px);
+    pointer-events:none;
+    animation:auraBreathe 2.2s ease-in-out infinite;
+    opacity:.85;
+  }
+
+  /* ==== TIA SÁNG BAY LÊN TỪ TÊN (pseudo chính) ==== */
+  .aura-cell .ten::after{
+    content:"✦";
+    position:absolute;
+    left:22%;
+    bottom:calc(100% - 2px);
+    font-size:11px;
+    z-index:-1;
+    pointer-events:none;
+    opacity:0;
+    animation:sparkRise1 2.6s ease-out infinite;
+  }
+
+  /* ==== TIA SÁNG PHỤ 1 (trên cell) ==== */
+  .aura-cell::before{
+    content:"✧";
+    position:absolute;
+    left:68%;
+    bottom:35%;
+    font-size:12px;
+    pointer-events:none;
+    opacity:0;
+    z-index:2;
+    animation:sparkRise2 3s ease-out infinite .9s;
+  }
+
+  /* ==== TIA SÁNG PHỤ 2 (trên cell) ==== */
+  .aura-cell::after{
+    content:"✦";
+    position:absolute;
+    left:42%;
+    bottom:25%;
+    font-size:9px;
+    pointer-events:none;
+    opacity:0;
+    z-index:2;
+    animation:sparkRise3 3.4s ease-out infinite 1.5s;
+  }
+
+  @keyframes auraBreathe{
+    0%,100%{opacity:.65; transform:scale(.94)}
+    50%    {opacity:1;   transform:scale(1.06)}
+  }
+  @keyframes sparkRise1{
+    0%  {opacity:0; transform:translate(0,0) scale(.4)}
+    15% {opacity:1}
+    100%{opacity:0; transform:translate(-6px,-48px) scale(1.3)}
+  }
+  @keyframes sparkRise2{
+    0%  {opacity:0; transform:translate(0,0) scale(.4)}
+    20% {opacity:1}
+    100%{opacity:0; transform:translate(14px,-58px) scale(1.4)}
+  }
+  @keyframes sparkRise3{
+    0%  {opacity:0; transform:translate(0,0) scale(.4)}
+    20% {opacity:1}
+    100%{opacity:0; transform:translate(-12px,-64px) scale(1.5)}
+  }
+
+  /* ---------- VIP 1 — ÁNH LỤC ---------- */
+  .aura-vip1 .ten{
+    color:#e7fff1;
+    background:linear-gradient(135deg, rgba(74,222,128,.28), rgba(34,197,94,.12));
+    border:1px solid rgba(74,222,128,.65);
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #4ade80,
+      0 0 22px #4ade80,
+      0 0 40px rgba(74,222,128,.65);
+    box-shadow:
+      0 0 14px rgba(74,222,128,.55),
+      0 0 30px rgba(74,222,128,.32),
+      inset 0 0 14px rgba(74,222,128,.28);
+  }
+  .aura-vip1 .ten::before{background:radial-gradient(ellipse, rgba(74,222,128,.85), transparent 70%)}
+  .aura-vip1 .ten::after {color:#86efac; text-shadow:0 0 10px #4ade80}
+  .aura-vip1::before{color:#86efac; text-shadow:0 0 10px #4ade80}
+  .aura-vip1::after {color:#4ade80; text-shadow:0 0 8px #4ade80}
+
+  /* ---------- VIP 2 — ÁNH LAM ---------- */
+  .aura-vip2 .ten{
+    color:#eaf6ff;
+    background:linear-gradient(135deg, rgba(99,179,255,.3), rgba(56,152,255,.12));
+    border:1px solid rgba(99,179,255,.7);
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #63b3ff,
+      0 0 22px #63b3ff,
+      0 0 40px rgba(99,179,255,.65);
+    box-shadow:
+      0 0 14px rgba(99,179,255,.6),
+      0 0 32px rgba(99,179,255,.35),
+      inset 0 0 14px rgba(99,179,255,.3);
+  }
+  .aura-vip2 .ten::before{background:radial-gradient(ellipse, rgba(99,179,255,.88), transparent 70%)}
+  .aura-vip2 .ten::after {color:#93c5fd; text-shadow:0 0 10px #63b3ff}
+  .aura-vip2::before{color:#93c5fd; text-shadow:0 0 10px #63b3ff}
+  .aura-vip2::after {color:#63b3ff; text-shadow:0 0 8px #63b3ff}
+
+  /* ---------- VIP 3 — ÁNH TÍM ---------- */
+  .aura-vip3 .ten{
+    color:#f6ecff;
+    background:linear-gradient(135deg, rgba(192,132,252,.32), rgba(168,85,247,.14));
+    border:1px solid rgba(192,132,252,.72);
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #c084fc,
+      0 0 22px #a855f7,
+      0 0 42px rgba(192,132,252,.7);
+    box-shadow:
+      0 0 16px rgba(192,132,252,.65),
+      0 0 34px rgba(168,85,247,.4),
+      inset 0 0 16px rgba(192,132,252,.35);
+  }
+  .aura-vip3 .ten::before{background:radial-gradient(ellipse, rgba(192,132,252,.9), transparent 70%)}
+  .aura-vip3 .ten::after {color:#e9d5ff; text-shadow:0 0 10px #c084fc}
+  .aura-vip3::before{color:#e9d5ff; text-shadow:0 0 10px #c084fc}
+  .aura-vip3::after {color:#c084fc; text-shadow:0 0 8px #c084fc}
+
+  /* ---------- VIP 4 — ÁNH CAM (LỬA) ---------- */
+  .aura-vip4 .ten{
+    color:#fff0dc;
+    background:linear-gradient(135deg, rgba(251,146,60,.32), rgba(249,115,22,.14));
+    border:1px solid rgba(251,146,60,.75);
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #fb923c,
+      0 0 24px #f97316,
+      0 0 44px rgba(251,146,60,.75);
+    box-shadow:
+      0 0 18px rgba(251,146,60,.7),
+      0 0 36px rgba(249,115,22,.42),
+      inset 0 0 16px rgba(251,146,60,.35);
+    animation:vip4Flicker 2.4s ease-in-out infinite alternate;
+  }
+  .aura-vip4 .ten::before{
+    background:radial-gradient(ellipse, rgba(251,146,60,.95), rgba(249,115,22,.45) 55%, transparent 78%);
+  }
+  .aura-vip4 .ten::after {content:"🔥"; color:#fdba74; text-shadow:0 0 12px #fb923c; font-size:11px}
+  .aura-vip4::before{content:"✦"; color:#fdba74; text-shadow:0 0 10px #fb923c}
+  .aura-vip4::after {content:"✧"; color:#fb923c; text-shadow:0 0 8px #f97316}
+  @keyframes vip4Flicker{
+    from{filter:brightness(1)}
+    to  {filter:brightness(1.18) saturate(1.25)}
+  }
+
+  /* ---------- PRIME — HOÀNG KIM (Kim Quang) ---------- */
+  .aura-prime .ten{
+    color:#fff8e1;
+    background:linear-gradient(135deg, rgba(245,196,81,.35), rgba(184,38,43,.18));
+    border:1px solid rgba(245,196,81,.85);
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #f5c451,
+      0 0 24px #f5c451,
+      0 0 44px rgba(245,196,81,.8),
+      0 0 68px rgba(184,38,43,.5);
+    box-shadow:
+      0 0 20px rgba(245,196,81,.8),
+      0 0 42px rgba(245,196,81,.45),
+      0 0 60px rgba(184,38,43,.35),
+      inset 0 0 18px rgba(245,196,81,.4);
+    animation:primeShimmer 2.6s ease-in-out infinite;
+  }
+  .aura-prime .ten::before{
+    background:radial-gradient(ellipse, rgba(245,196,81,.95), rgba(184,38,43,.5) 55%, transparent 78%);
+  }
+  .aura-prime .ten::after {content:"✨"; color:#fff3c4; text-shadow:0 0 12px #f5c451; font-size:12px}
+  .aura-prime::before{content:"✦"; color:#fff3c4; text-shadow:0 0 12px #f5c451}
+  .aura-prime::after {content:"✧"; color:#f5c451; text-shadow:0 0 10px #b8262b}
+  @keyframes primeShimmer{
+    0%,100%{filter:brightness(1)    saturate(1)}
+    50%    {filter:brightness(1.22) saturate(1.35)}
+  }
+
+  /* ---------- PRIME PROMAX — HỒNG-LAM (Song Sắc) ---------- */
+  .aura-promax .ten{
+    color:#ffeaf6;
+    background:linear-gradient(135deg, rgba(255,45,149,.35), rgba(0,229,255,.25), rgba(245,196,81,.18));
+    background-size:220% 220%;
+    border:1px solid rgba(255,233,168,.9);
+    text-shadow:
+      0 0 4px #fff,
+      0 0 12px #ff2d95,
+      0 0 24px #ff2d95,
+      0 0 36px #00e5ff,
+      0 0 55px rgba(255,45,149,.7);
+    box-shadow:
+      0 0 22px rgba(255,45,149,.75),
+      0 0 40px rgba(0,229,255,.5),
+      0 0 60px rgba(255,45,149,.35),
+      inset 0 0 18px rgba(255,45,149,.35);
+    animation:promaxShift 3.2s ease-in-out infinite, promaxGlow2 2s ease-in-out infinite alternate;
+  }
+  .aura-promax .ten::before{
+    background:conic-gradient(from 0deg,
+      rgba(255,45,149,.9),
+      rgba(0,229,255,.85),
+      rgba(255,45,149,.9));
+    filter:blur(20px);
+    inset:-22px -32px;
+    animation:auraBreathe 2s ease-in-out infinite, spinSlow 7s linear infinite;
+  }
+  .aura-promax .ten::after {content:"💫"; color:#ffe9a8; font-size:12px; text-shadow:0 0 14px #ff2d95}
+  .aura-promax::before{content:"✦"; color:#ff9ce0; text-shadow:0 0 12px #ff2d95}
+  .aura-promax::after {content:"✧"; color:#7de9ff; text-shadow:0 0 12px #00e5ff}
+  @keyframes promaxShift{
+    0%,100%{background-position:0% 50%}
+    50%    {background-position:100% 50%}
+  }
+  @keyframes promaxGlow2{
+    from{filter:brightness(1)    saturate(1.1)}
+    to  {filter:brightness(1.2)  saturate(1.4)}
+  }
+
+  /* ---------- PRIME ULTRA — THẦN THÁNH (Chí Tôn) ---------- */
+  .aura-ultra .ten{
+    color:#fffde6;
+    background:
+      linear-gradient(135deg,
+        rgba(255,215,0,.35),
+        rgba(255,45,149,.28),
+        rgba(168,85,247,.28),
+        rgba(0,229,255,.28),
+        rgba(255,215,0,.35));
+    background-size:300% 300%;
+    border:1.5px solid transparent;
+    background-clip:padding-box;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 12px #ffd700,
+      0 0 24px #ffd700,
+      0 0 38px #ff2d95,
+      0 0 55px #00e5ff,
+      0 0 80px rgba(168,85,247,.85);
+    box-shadow:
+      0 0 26px rgba(255,215,0,.9),
+      0 0 50px rgba(255,45,149,.6),
+      0 0 80px rgba(0,229,255,.5),
+      inset 0 0 22px rgba(255,215,0,.4);
+    animation:ultraShine 2.4s ease-in-out infinite alternate,
+              ultraBgMove 5s linear infinite;
+  }
+  .aura-ultra .ten::before{
+    content:"";
+    position:absolute;
+    inset:-24px -34px;
+    border-radius:50%;
+    z-index:-2;
+    background:conic-gradient(from 0deg,
+      rgba(255,215,0,.95),
+      rgba(255,45,149,.9),
+      rgba(168,85,247,.9),
+      rgba(0,229,255,.9),
+      rgba(255,215,0,.95));
+    filter:blur(24px);
+    pointer-events:none;
+    animation:auraBreathe 2s ease-in-out infinite, spinSlow 6s linear infinite;
+  }
+  /* Tia sáng chính — vương miện + tia bay */
+  .aura-ultra .ten::after{
+    content:"✦";
+    position:absolute;
+    left:22%;
+    bottom:calc(100% - 2px);
+    font-size:13px;
+    color:#fff8dc;
+    text-shadow:0 0 12px #ffd700, 0 0 20px #ff2d95, 0 0 30px #00e5ff;
+    z-index:-1;
+    pointer-events:none;
+    opacity:0;
+    animation:sparkRise1 2.2s ease-out infinite;
+  }
+  .aura-ultra::before{
+    content:"👑";
+    position:absolute;
+    left:50%;
+    bottom:calc(100% - 10px);
+    transform:translateX(-50%);
+    font-size:16px;
+    z-index:3;
+    pointer-events:none;
+    filter:
+      drop-shadow(0 0 8px #ffd700)
+      drop-shadow(0 0 16px #ff2d95);
+    animation:crownFloat 2.4s ease-in-out infinite;
+  }
+  .aura-ultra::after{
+    content:"✦";
+    position:absolute;
+    left:70%;
+    bottom:30%;
+    font-size:14px;
+    color:#fff8dc;
+    text-shadow:0 0 12px #ffd700, 0 0 22px #ff2d95, 0 0 32px #a855f7;
+    pointer-events:none;
+    opacity:0;
+    z-index:3;
+    animation:sparkRise2 2.8s ease-out infinite .7s;
+  }
+
+  @keyframes ultraShine{
+    from{filter:brightness(1)    saturate(1.15)}
+    to  {filter:brightness(1.3)  saturate(1.55)}
+  }
+  @keyframes ultraBgMove{
+    0%  {background-position:0% 50%}
+    100%{background-position:300% 50%}
+  }
+  @keyframes spinSlow{
+    from{transform:rotate(0deg)}
+    to  {transform:rotate(360deg)}
+  }
+  @keyframes crownFloat{
+    0%,100%{opacity:.9;  transform:translate(-50%,0)   scale(1);   filter:drop-shadow(0 0 8px #ffd700) drop-shadow(0 0 16px #ff2d95)}
+    50%    {opacity:1;   transform:translate(-50%,-6px) scale(1.2); filter:drop-shadow(0 0 14px #ffd700) drop-shadow(0 0 24px #ff2d95) drop-shadow(0 0 30px #00e5ff)}
+  }
+
+  /* ================= LEADERBOARD HIGHLIGHT ================= */
+  .top1 td{background:linear-gradient(90deg,rgba(245,196,81,.16),transparent)!important}
+  .top2 td{background:linear-gradient(90deg,rgba(192,192,192,.12),transparent)!important}
+  .top3 td{background:linear-gradient(90deg,rgba(205,127,50,.12),transparent)!important}
 
   .hang{
     font-weight:800;
@@ -346,7 +716,7 @@
   /* ================= ƯU ĐÃI ================= */
   .uu-dai-list{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     gap:18px;
   }
 
@@ -358,22 +728,6 @@
     padding:20px 18px 22px;
     transition:.28s;
     overflow:hidden;
-  }
-
-  .uu-dai-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:14px;
-    padding:1px;
-    background:linear-gradient(135deg,transparent,rgba(245,196,81,.35),transparent);
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;
-    mask-composite:exclude;
-    pointer-events:none;
-    opacity:.6;
   }
 
   .uu-dai-card:hover{
@@ -435,6 +789,28 @@
   }
   .uu-dai-card.prime-promax h3{color:#ffe9a8;text-shadow:0 0 12px rgba(255,45,149,.5)}
 
+  .uu-dai-card.prime-ultra{
+    background:linear-gradient(160deg,
+      rgba(255,215,0,.14),
+      rgba(255,45,149,.14),
+      rgba(0,229,255,.12),
+      rgba(168,85,247,.12));
+    border-color:rgba(255,215,0,.55);
+    box-shadow:0 0 30px rgba(255,215,0,.18), 0 0 50px rgba(168,85,247,.12);
+    animation:ultraCardPulse 3s ease-in-out infinite alternate;
+  }
+  .uu-dai-card.prime-ultra h3{
+    color:#fffbe6;
+    text-shadow:
+      0 0 12px rgba(255,215,0,.7),
+      0 0 22px rgba(255,45,149,.6),
+      0 0 30px rgba(0,229,255,.5);
+  }
+  @keyframes ultraCardPulse{
+    from{box-shadow:0 0 22px rgba(255,215,0,.18), 0 0 40px rgba(168,85,247,.12)}
+    to  {box-shadow:0 0 34px rgba(255,215,0,.4), 0 0 60px rgba(168,85,247,.28), 0 0 80px rgba(0,229,255,.18)}
+  }
+
   .uu-dai-tag{
     display:inline-block;
     margin-top:14px;
@@ -452,6 +828,50 @@
     background:linear-gradient(135deg,#ff2d95,#00e5ff);
     color:#0a0010;
     border-color:#ffe9a8;
+  }
+  .prime-ultra .uu-dai-tag{
+    background:linear-gradient(90deg,#ffd700,#ff2d95,#00e5ff,#a855f7,#ffd700);
+    background-size:300% 100%;
+    color:#1a0008;
+    border-color:#fff8dc;
+    animation:ultraBadgeMove 3s linear infinite;
+  }
+
+  /* ================= AURA PREVIEW TRONG ƯU ĐÃI ================= */
+  .aura-preview{
+    margin-top:14px;
+    padding:26px 14px 30px;
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(255,255,255,.04), transparent 60%),
+      rgba(0,0,0,.42);
+    border:1px dashed var(--border);
+    border-radius:14px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    min-height:110px;
+  }
+
+  .aura-preview .aura-label{
+    display:block;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+
+  .aura-preview .aura-cell{
+    display:inline-block;
+    padding:0 !important;
+    text-align:center;
+    position:relative;
+  }
+
+  .aura-preview .ten{
+    font-size:15px;
+    padding:9px 20px;
   }
 
   /* ================= LỜI TÂM SỰ ================= */
@@ -616,9 +1036,11 @@
 
   @media (max-width:600px){
     .card{padding:18px 12px 22px;border-radius:12px}
-    table{font-size:13.5px;min-width:480px}
+    table{font-size:13.5px;min-width:520px}
     thead th,tbody td{padding:10px 8px}
     .nav a{font-size:12.5px;padding:8px 13px}
+    .aura-cell .ten{font-size:13px;padding:6px 12px}
+    .aura-preview .ten{font-size:14px;padding:8px 16px}
   }
 </style>
 </head>
@@ -645,7 +1067,7 @@
   <!-- ============ PHẦN 1 ============ -->
   <section class="card" id="nap-chi-tiet">
     <h2><span class="icon">📜</span> Nạp Chi Tiết </h2>
-    <p class="note">Danh sách 25 thành viên kèm chi tiết và cấp bậc.</p>
+    <p class="note">Danh sách 25 thành viên kèm chi tiết và cấp bậc — linh khí hiển thị theo cấp.</p>
     <div class="table-wrap">
       <table id="tb-nap-chi-tiet">
         <thead>
@@ -660,7 +1082,6 @@
       </table>
     </div>
 
-    <!-- TỔNG TIỀN -->
     <div class="total-box">
       <div class="total-label">
         <span class="icon">💰</span>
@@ -674,7 +1095,7 @@
   <!-- ============ PHẦN 2 ============ -->
   <section class="card" id="bang-nap-moi">
     <h2><span class="icon">💎</span> Bảng Nạp Mới</h2>
-    <p class="note">Mức nạp tương ứng theo từng cấp bậc.</p>
+    <p class="note">Mức nạp tương ứng theo từng cấp bậc — Prime Ultra là bậc cao nhất.</p>
     <div class="table-wrap">
       <table id="tb-bang-nap">
         <thead>
@@ -693,7 +1114,7 @@
   <!-- ============ PHẦN 3 ============ -->
   <section class="card" id="dua-top">
     <h2><span class="icon">🏆</span> Bảng Đua Top Nạp</h2>
-    <p class="note">Bảng xếp hạng top nạp — cập nhật liên tục.</p>
+    <p class="note">Bảng xếp hạng top nạp — linh khí bốc ra từ tên theo cấp bậc.</p>
     <div class="table-wrap">
       <table id="tb-dua-top">
         <thead>
@@ -711,8 +1132,8 @@
 
   <!-- ============ PHẦN 4: ƯU ĐÃI ============ -->
   <section class="card" id="uu-dai">
-    <h2><span class="icon">🎁</span> Ưu Đãi Theo Cấp Bậc (VIP, Prime)</h2>
-    <p class="note">Chi tiết quyền lợi dành cho từng cấp bậc khi nạp.</p>
+    <h2><span class="icon">🎁</span> Ưu Đãi Theo Cấp Bậc (VIP, Prime, Prime Ultra)</h2>
+    <p class="note">Chi tiết quyền lợi + linh khí nhận được theo từng cấp bậc khi nạp.</p>
 
     <div class="uu-dai-list">
 
@@ -722,6 +1143,10 @@
         <ul>
           <li>Được nghe <b>Chương voice tên anh &lt;tên bạn&gt;</b>.</li>
         </ul>
+        <div class="aura-preview">
+          <span class="aura-label">✨ Linh Khí — Ánh Lục</span>
+          <span class="aura-cell aura-vip1"><span class="ten">Tên bạn</span></span>
+        </div>
         <span class="uu-dai-tag">Gói khởi đầu</span>
       </div>
 
@@ -732,6 +1157,10 @@
           <li>Được nghe <b>Chương voice tên anh &lt;tên bạn&gt;</b>.</li>
           <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
         </ul>
+        <div class="aura-preview">
+          <span class="aura-label">✨ Linh Khí — Ánh Lam</span>
+          <span class="aura-cell aura-vip2"><span class="ten">Tên bạn</span></span>
+        </div>
         <span class="uu-dai-tag">Có quà 20/10</span>
       </div>
 
@@ -741,12 +1170,12 @@
         <ul>
           <li>Được nghe <b>Chương voice tên anh &lt;tên bạn&gt;</b>.</li>
           <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
-          <li class="highlight-li">
-            Được <b>miễn 2 lần ghi tên phạt</b> trên bảng
-            <br><em>(nhận 2 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 4 lần).</em>
-          </li>
         </ul>
-        <span class="uu-dai-tag">Miễn phạt 2 lần/tuần</span>
+        <div class="aura-preview">
+          <span class="aura-label">✨ Linh Khí — Ánh Tím</span>
+          <span class="aura-cell aura-vip3"><span class="ten">Tên bạn</span></span>
+        </div>
+        <span class="uu-dai-tag">Quà 20/10</span>
       </div>
 
       <!-- VIP 4 -->
@@ -756,11 +1185,15 @@
           <li>Được nghe <b>Chương voice tên anh &lt;tên bạn&gt;</b>.</li>
           <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
           <li class="highlight-li">
-            Được <b>miễn 4 lần ghi tên phạt</b> trên bảng
-            <br><em>(nhận 4 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 8 lần).</em>
+            Được <b>miễn 2 lần ghi tên phạt</b> trên bảng
+            <br><em>(nhận 2 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 4 lần).</em>
           </li>
         </ul>
-        <span class="uu-dai-tag">Miễn phạt 4 lần/tuần</span>
+        <div class="aura-preview">
+          <span class="aura-label">✨ Linh Khí — Ánh Cam (Lửa)</span>
+          <span class="aura-cell aura-vip4"><span class="ten">Tên bạn</span></span>
+        </div>
+        <span class="uu-dai-tag">Miễn phạt 2 lần/tuần</span>
       </div>
 
       <!-- PRIME -->
@@ -770,10 +1203,14 @@
           <li>Được nghe <b>Chương voice tên bố &lt;tên bạn&gt;</b>.</li>
           <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
           <li class="highlight-li">
-            Được <b>miễn 5 lần ghi tên phạt</b> trên bảng
-            <br><em>(nhận 5 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 10 lần).</em>
+            Được <b>miễn 4 lần ghi tên phạt</b> trên bảng
+            <br><em>(nhận 4 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 8 lần).</em>
           </li>
         </ul>
+        <div class="aura-preview">
+          <span class="aura-label">✨ Linh Khí — Hoàng Kim</span>
+          <span class="aura-cell aura-prime"><span class="ten">Tên bạn</span></span>
+        </div>
         <span class="uu-dai-tag">Đỉnh cao — voice tên bố</span>
       </div>
 
@@ -784,11 +1221,33 @@
           <li>Được nghe <b>Chương voice tên bố &lt;tên bạn&gt;</b>.</li>
           <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
           <li class="highlight-li">
+            Được <b>miễn 5 lần ghi tên phạt</b> trên bảng
+            <br><em>(nhận 5 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 10 lần).</em>
+          </li>
+        </ul>
+        <div class="aura-preview">
+          <span class="aura-label">✨ Linh Khí — Song Sắc Hồng-Lam</span>
+          <span class="aura-cell aura-promax"><span class="ten">Tên bạn</span></span>
+        </div>
+        <span class="uu-dai-tag">🔥 Cấp bậc tối thượng</span>
+      </div>
+
+      <!-- PRIME ULTRA -->
+      <div class="uu-dai-card prime-ultra">
+        <h3><span>🌟</span> Prime Ultra — 30.000đ trở lên</h3>
+        <ul>
+          <li>Được nghe <b>Chương voice tên bố &lt;tên bạn&gt;</b>.</li>
+          <li>Được <b>lựa chọn và tặng quà 20/10</b> cho người con gái bạn muốn.</li>
+          <li class="highlight-li">
             Được <b>miễn 7 lần ghi tên phạt</b> trên bảng
             <br><em>(nhận 7 lần / tuần, hồi lại sau mỗi tuần → 2 tuần = 14 lần).</em>
           </li>
         </ul>
-        <span class="uu-dai-tag">🔥 Cấp bậc tối thượng</span>
+        <div class="aura-preview">
+          <span class="aura-label">✨ Linh Khí — Thần Thánh Chí Tôn</span>
+          <span class="aura-cell aura-ultra"><span class="ten">Tên bạn</span></span>
+        </div>
+        <span class="uu-dai-tag">👑 Bậc cao nhất — Thần thánh</span>
       </div>
 
     </div>
@@ -858,7 +1317,7 @@ const danhSachNap = [
   { ten: "Đức Huy", chiTiet: "0đ", capBac: "lạy bố" },
   { ten: "Bảo Huy", chiTiet: "20.000đ", capBac: "prime" },
   { ten: "Duy Anh", chiTiet: "15.000đ", capBac: "Phổ thông" },
-  { ten: "Thành Nhân", chiTiet: "30.000đ", capBac: "Prime Promax" },
+  { ten: "Thành Nhân", chiTiet: "30.000đ", capBac: "Prime Ultra" },
   { ten: "Hoàng Quân", chiTiet: "15.000đ", capBac: "Phổ thông" },
   { ten: "Đăng Khoa", chiTiet: "0đ", capBac: "lạy bố" },
   { ten: "Khánh Hưng", chiTiet: "14.000đ", capBac: "lỏ vãi" },
@@ -867,10 +1326,10 @@ const danhSachNap = [
   { ten: "Minh Khang", chiTiet: "15.000đ", capBac: "Phổ thông" },
   { ten: "Tuấn Kiệt", chiTiet: "25.000đ", capBac: "Prime Promax" },
   { ten: "Hải Minh", chiTiet: "25.000đ", capBac: "Prime Promax" },
-  { ten: "Minh Hải", chiTiet: "15.000đ", capBac: "Phổ thông" },
+  { ten: "Minh Hải", chiTiet: "17.000đ", capBac: "vip 2" },
   { ten: "Khôi Nguyên", chiTiet: "20.000đ", capBac: "prime" },
   { ten: "Ngọc Nguyên", chiTiet: "25.000đ", capBac: "Prime Promax" },
-  { ten: "Tín Đạt", chiTiet: "30.000đ", capBac: "Prime Promax" },
+  { ten: "Tín Đạt", chiTiet: "30.000đ", capBac: "Prime Ultra" },
   { ten: "Hồng Phong", chiTiet: "22.000đ", capBac: "prime" },
   { ten: "Hoàng Long", chiTiet: "20.000đ", capBac: "prime" },
   { ten: "Huy Hoàng", chiTiet: "16.000đ", capBac: "vip 1" }
@@ -884,24 +1343,25 @@ const bangNapMoi = [
   { capBac: "VIP 3",        mucNap: 18000, ghiChu: "Ưu đãi khá" },
   { capBac: "VIP 4",        mucNap: 19000, ghiChu: "Ưu đãi cao" },
   { capBac: "Prime",        mucNap: 20000, ghiChu: "20k — cao cấp" },
-  { capBac: "Prime Promax", mucNap: 25000, ghiChu: "25k đổ lên — tối thượng" }
+  { capBac: "Prime Promax", mucNap: 25000, ghiChu: "25k đổ lên — tối thượng" },
+  { capBac: "Prime Ultra",  mucNap: 30000, ghiChu: "30k đổ lên — thần thánh" }
 ];
 
 /* ---------- 3. BẢNG ĐUA TOP NẠP ---------- */
 const duaTop = [
-  { ten: "Thành Nhân",     soTien: 30000, capBac: "Prime Promax" },
-  { ten: "Tín Đạt",  soTien: 30000, capBac: "Prime Promax" },
-  { ten: "Hoàng Duy", soTien: 25000, capBac: "Prime Promax" },
-  { ten: "Tuấn Kiệt",     soTien: 25000, capBac: "Prime Promax" },
-  { ten: "Hải Minh",  soTien: 25000, capBac: "Prime Promax" },
-  { ten: "Ngọc Nguyên", soTien: 25000, capBac: "Prime Promax" },
-  { ten: "Hồng Phong", soTien: 22000, capBac: "Prime" },
-  { ten: "Gia Bảo",   soTien: 20000, capBac: "Prime" },
-  { ten: "Viết Chương",   soTien: 20000, capBac: "Prime" },
-  { ten: "Khôi Nguyên",    soTien: 20000, capBac: "Prime" }
+  { ten: "Thành Nhân",   soTien: 30000, capBac: "Prime Ultra" },
+  { ten: "Tín Đạt",      soTien: 30000, capBac: "Prime Ultra" },
+  { ten: "Hoàng Duy",    soTien: 25000, capBac: "Prime Promax" },
+  { ten: "Tuấn Kiệt",    soTien: 25000, capBac: "Prime Promax" },
+  { ten: "Hải Minh",     soTien: 25000, capBac: "Prime Promax" },
+  { ten: "Ngọc Nguyên",  soTien: 25000, capBac: "Prime Promax" },
+  { ten: "Hồng Phong",   soTien: 22000, capBac: "Prime" },
+  { ten: "Gia Bảo",      soTien: 20000, capBac: "Prime" },
+  { ten: "Viết Chương",  soTien: 20000, capBac: "Prime" },
+  { ten: "Khôi Nguyên",  soTien: 20000, capBac: "Prime" }
 ];
 
-/* ---------- 4. LỜI TÂM SỰ (from Chương) ---------- */
+/* ---------- 4. LỜI TÂM SỰ ---------- */
 const tamSuList = [
   { nguoiGui: "Chương 9/12", thoiGian: "20/10/2026", noiDung: "chúc tất cả anh anh em tốt bụng đã nạp lần đầu nhé!" },
   { nguoiGui: "Chương 9/12", thoiGian: "20/10/2026", noiDung: "Những ai đã nạp và ủng hộ Chương, Chương xin ghi nhận và biết ơn rất nhiều. Mong rằng mọi người luôn mạnh khỏe và thành công trong cuộc sống." },
@@ -921,12 +1381,36 @@ const BADGE_MAP = {
   "vip 4": "b-vip4",
   "prime": "b-prime",
   "prime promax": "b-prime-promax",
+  "prime ultra": "b-prime-ultra",
   "lạy bố": "b-laybo",
   "lỏ vãi": "b-lovai"
 };
 
+const AURA_MAP = {
+  "vip 1": "aura-vip1",
+  "vip 2": "aura-vip2",
+  "vip 3": "aura-vip3",
+  "vip 4": "aura-vip4",
+  "prime": "aura-prime",
+  "prime promax": "aura-promax",
+  "prime ultra": "aura-ultra"
+};
+
 function badgeClass(capBac){
   return BADGE_MAP[String(capBac).toLowerCase().trim()] || "b-common";
+}
+
+function auraClass(capBac){
+  return AURA_MAP[String(capBac).toLowerCase().trim()] || "";
+}
+
+/* Tạo ô tên kèm aura (nếu có) — dùng td.aura-cell + span.ten */
+function tenCellHTML(r){
+  const au = auraClass(r.capBac);
+  if (!au) {
+    return `<td class="ten">${r.ten}</td>`;
+  }
+  return `<td class="aura-cell ${au}"><span class="ten">${r.ten}</span></td>`;
 }
 
 function formatTien(n){
@@ -934,17 +1418,11 @@ function formatTien(n){
   return Number(n).toLocaleString("vi-VN") + "đ";
 }
 
-/* Phân tích chuỗi chi tiết -> số tiền (xử lý "âm", dấu chấm, "đ") */
 function parseChiTiet(str){
   if (!str) return 0;
   let s = String(str).toLowerCase().trim();
-
-  // Kiểm tra âm
   const isNegative = s.includes("âm") || s.startsWith("-");
-
-  // Bỏ các chữ không phải số
   s = s.replace(/[^\d]/g, "");
-
   const num = parseInt(s, 10) || 0;
   return isNegative ? -num : num;
 }
@@ -953,7 +1431,7 @@ function parseChiTiet(str){
 document.querySelector("#tb-nap-chi-tiet tbody").innerHTML = danhSachNap.map((r, i) => `
   <tr>
     <td class="stt">${i + 1}</td>
-    <td class="ten">${r.ten}</td>
+    ${tenCellHTML(r)}
     <td>${r.chiTiet}</td>
     <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
   </tr>
@@ -966,9 +1444,7 @@ document.querySelector("#tb-nap-chi-tiet tbody").innerHTML = danhSachNap.map((r,
   if (!tongTienEl) return;
 
   let tong = 0;
-  let soDuong = 0;   // số người nạp dương
-  let soAm = 0;      // số người nạp âm
-  let soKhong = 0;   // số người 0đ
+  let soDuong = 0, soAm = 0, soKhong = 0;
 
   danhSachNap.forEach(r => {
     const val = parseChiTiet(r.chiTiet);
@@ -987,21 +1463,24 @@ document.querySelector("#tb-nap-chi-tiet tbody").innerHTML = danhSachNap.map((r,
 })();
 
 /* ----- Render bảng 2: Bảng nạp mới ----- */
-document.querySelector("#tb-bang-nap tbody").innerHTML = bangNapMoi.map((r, i) => `
-  <tr>
-    <td class="stt">${i + 1}</td>
-    <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
-    <td class="price">${formatTien(r.mucNap)}${r.capBac === "Prime Promax" ? " đổ lên" : ""}</td>
-    <td>${r.ghiChu}</td>
-  </tr>
-`).join("");
+document.querySelector("#tb-bang-nap tbody").innerHTML = bangNapMoi.map((r, i) => {
+  const isPlus = (r.capBac === "Prime Promax" || r.capBac === "Prime Ultra");
+  return `
+    <tr>
+      <td class="stt">${i + 1}</td>
+      <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
+      <td class="price">${formatTien(r.mucNap)}${isPlus ? " đổ lên" : ""}</td>
+      <td>${r.ghiChu}</td>
+    </tr>
+  `;
+}).join("");
 
 /* ----- Render bảng 3: Đua top nạp ----- */
 const medal = ["🥇", "🥈", "🥉"];
 document.querySelector("#tb-dua-top tbody").innerHTML = duaTop.map((r, i) => `
   <tr class="${i < 3 ? "top" + (i + 1) : ""}">
     <td class="hang">${medal[i] || "#" + (i + 1)}</td>
-    <td class="ten">${r.ten}</td>
+    ${tenCellHTML(r)}
     <td class="money">${formatTien(r.soTien)}</td>
     <td><span class="badge ${badgeClass(r.capBac)}">${r.capBac}</span></td>
   </tr>
