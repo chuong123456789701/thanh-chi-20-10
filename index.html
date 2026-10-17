@@ -367,7 +367,6 @@
     transform:scale(1.12) translateY(-1px);
   }
 
-  /* ==== QUẦNG SÁNG THỞ PHÍA SAU TÊN ==== */
   .aura-cell .ten::before{
     content:"";
     position:absolute;
@@ -380,7 +379,6 @@
     opacity:.85;
   }
 
-  /* ==== TIA SÁNG BAY LÊN TỪ TÊN (pseudo chính) ==== */
   .aura-cell .ten::after{
     content:"✦";
     position:absolute;
@@ -393,7 +391,6 @@
     animation:sparkRise1 2.6s ease-out infinite;
   }
 
-  /* ==== TIA SÁNG PHỤ 1 (trên cell) ==== */
   .aura-cell::before{
     content:"✧";
     position:absolute;
@@ -406,7 +403,6 @@
     animation:sparkRise2 3s ease-out infinite .9s;
   }
 
-  /* ==== TIA SÁNG PHỤ 2 (trên cell) ==== */
   .aura-cell::after{
     content:"✦";
     position:absolute;
@@ -639,7 +635,6 @@
     pointer-events:none;
     animation:auraBreathe 2s ease-in-out infinite, spinSlow 6s linear infinite;
   }
-  /* Tia sáng chính — vương miện + tia bay */
   .aura-ultra .ten::after{
     content:"✦";
     position:absolute;
@@ -1114,7 +1109,7 @@
   <!-- ============ PHẦN 3 ============ -->
   <section class="card" id="dua-top">
     <h2><span class="icon">🏆</span> Bảng Đua Top Nạp</h2>
-    <p class="note">Bảng xếp hạng top nạp — linh khí bốc ra từ tên theo cấp bậc.</p>
+    <p class="note">Top 10 người nạp cao nhất — tự động sinh từ bảng Nạp chi tiết (đồng hạng được giữ nguyên).</p>
     <div class="table-wrap">
       <table id="tb-dua-top">
         <thead>
@@ -1308,31 +1303,31 @@
 
 /* ---------- 1. DANH SÁCH NẠP CHI TIẾT (25 người) ---------- */
 const danhSachNap = [
-  { ten: "Trường Thiện", chiTiet: "5000đ", capBac: "lạy bố" },
-  { ten: "Gia Bảo", chiTiet: "20.000đ", capBac: "prime" },
-  { ten: "Hoàng Duy", chiTiet: "32.000đ", capBac: "Prime Ultra" },
-  { ten: "Văn Phúc", chiTiet: "18.000đ", capBac: "vip 3" },
-  { ten: "Quý Vương", chiTiet: "16.000đ", capBac: "vip 1" },
-  { ten: "Công Hiếu", chiTiet: "10.000đ", capBac: "lỏ vãi" },
-  { ten: "Đức Huy", chiTiet: "0đ", capBac: "lạy bố" },
-  { ten: "Bảo Huy", chiTiet: "20.000đ", capBac: "prime" },
-  { ten: "Duy Anh", chiTiet: "15.000đ", capBac: "Phổ thông" },
-  { ten: "Thành Nhân", chiTiet: "30.000đ", capBac: "Prime Ultra" },
-  { ten: "Hoàng Quân", chiTiet: "15.000đ", capBac: "Phổ thông" },
-  { ten: "Đăng Khoa", chiTiet: "0đ", capBac: "lạy bố" },
-  { ten: "Khánh Hưng", chiTiet: "14.000đ", capBac: "lỏ vãi" },
-  { ten: "Viết Chương", chiTiet: "20.000đ", capBac: "prime" },
-  { ten: "Kim Thái", chiTiet: "15.000đ", capBac: "vip 1" },
-  { ten: "Minh Khang", chiTiet: "15.000đ", capBac: "Phổ thông" },
-  { ten: "Tuấn Kiệt", chiTiet: "25.000đ", capBac: "Prime Promax" },
-  { ten: "Hải Minh", chiTiet: "25.000đ", capBac: "Prime Promax" },
-  { ten: "Minh Hải", chiTiet: "17.000đ", capBac: "vip 2" },
-  { ten: "Khôi Nguyên", chiTiet: "20.000đ", capBac: "prime" },
-  { ten: "Ngọc Nguyên", chiTiet: "25.000đ", capBac: "Prime Promax" },
-  { ten: "Tín Đạt", chiTiet: "30.000đ", capBac: "Prime Ultra" },
-  { ten: "Hồng Phong", chiTiet: "22.000đ", capBac: "prime" },
-  { ten: "Hoàng Long", chiTiet: "20.000đ", capBac: "prime" },
-  { ten: "Huy Hoàng", chiTiet: "16.000đ", capBac: "vip 1" }
+  { ten: "Trường Thiện", chiTiet: "5000đ",   capBac: "lạy bố" },
+  { ten: "Gia Bảo",      chiTiet: "20.000đ", capBac: "prime" },
+  { ten: "Hoàng Duy",    chiTiet: "32.000đ", capBac: "Prime Ultra" },
+  { ten: "Văn Phúc",     chiTiet: "18.000đ", capBac: "vip 3" },
+  { ten: "Quý Vương",    chiTiet: "16.000đ", capBac: "vip 1" },
+  { ten: "Công Hiếu",    chiTiet: "10.000đ", capBac: "lỏ vãi" },
+  { ten: "Đức Huy",      chiTiet: "0đ",      capBac: "lạy bố" },
+  { ten: "Bảo Huy",      chiTiet: "20.000đ", capBac: "prime" },
+  { ten: "Duy Anh",      chiTiet: "15.000đ", capBac: "Phổ thông" },
+  { ten: "Thành Nhân",   chiTiet: "30.000đ", capBac: "Prime Ultra" },
+  { ten: "Hoàng Quân",   chiTiet: "15.000đ", capBac: "Phổ thông" },
+  { ten: "Đăng Khoa",    chiTiet: "0đ",      capBac: "lạy bố" },
+  { ten: "Khánh Hưng",   chiTiet: "14.000đ", capBac: "lỏ vãi" },
+  { ten: "Viết Chương",  chiTiet: "20.000đ", capBac: "prime" },
+  { ten: "Kim Thái",     chiTiet: "15.000đ", capBac: "vip 1" },
+  { ten: "Minh Khang",   chiTiet: "15.000đ", capBac: "Phổ thông" },
+  { ten: "Tuấn Kiệt",    chiTiet: "25.000đ", capBac: "Prime Promax" },
+  { ten: "Hải Minh",     chiTiet: "25.000đ", capBac: "Prime Promax" },
+  { ten: "Minh Hải",     chiTiet: "17.000đ", capBac: "vip 2" },
+  { ten: "Khôi Nguyên",  chiTiet: "20.000đ", capBac: "prime" },
+  { ten: "Ngọc Nguyên",  chiTiet: "25.000đ", capBac: "Prime Promax" },
+  { ten: "Tín Đạt",      chiTiet: "30.000đ", capBac: "Prime Ultra" },
+  { ten: "Hồng Phong",   chiTiet: "22.000đ", capBac: "prime" },
+  { ten: "Hoàng Long",   chiTiet: "20.000đ", capBac: "prime" },
+  { ten: "Huy Hoàng",    chiTiet: "16.000đ", capBac: "vip 1" }
 ];
 
 /* ---------- 2. BẢNG NẠP MỚI ---------- */
@@ -1347,21 +1342,7 @@ const bangNapMoi = [
   { capBac: "Prime Ultra",  mucNap: 30000, ghiChu: "30k đổ lên — thần thánh" }
 ];
 
-/* ---------- 3. BẢNG ĐUA TOP NẠP ---------- */
-const duaTop = [
-  { ten: "Hoàng Duy",  soTien: 32000, capBac: "Prime Ultra" }
-  { ten: "Thành Nhân",   soTien: 30000, capBac: "Prime Ultra" },
-  { ten: "Tín Đạt",      soTien: 30000, capBac: "Prime Ultra" },
-  { ten: "Tuấn Kiệt",    soTien: 25000, capBac: "Prime Promax" },
-  { ten: "Hải Minh",     soTien: 25000, capBac: "Prime Promax" },
-  { ten: "Ngọc Nguyên",  soTien: 25000, capBac: "Prime Promax" },
-  { ten: "Hồng Phong",   soTien: 22000, capBac: "Prime" },
-  { ten: "Gia Bảo",      soTien: 20000, capBac: "Prime" },
-  { ten: "Viết Chương",  soTien: 20000, capBac: "Prime" },
-  { ten: "Khôi Nguyên",  soTien: 20000, capBac: "Prime" },  
-];
-
-/* ---------- 4. LỜI TÂM SỰ ---------- */
+/* ---------- 3. LỜI TÂM SỰ ---------- */
 const tamSuList = [
   { nguoiGui: "Chương 9/12", thoiGian: "20/10/2026", noiDung: "chúc tất cả anh anh em tốt bụng đã nạp lần đầu nhé!" },
   { nguoiGui: "Chương 9/12", thoiGian: "20/10/2026", noiDung: "Những ai đã nạp và ủng hộ Chương, Chương xin ghi nhận và biết ơn rất nhiều. Mong rằng mọi người luôn mạnh khỏe và thành công trong cuộc sống." },
@@ -1404,7 +1385,7 @@ function auraClass(capBac){
   return AURA_MAP[String(capBac).toLowerCase().trim()] || "";
 }
 
-/* Tạo ô tên kèm aura (nếu có) — dùng td.aura-cell + span.ten */
+/* Tạo ô tên kèm aura (nếu có) */
 function tenCellHTML(r){
   const au = auraClass(r.capBac);
   if (!au) {
@@ -1425,6 +1406,26 @@ function parseChiTiet(str){
   s = s.replace(/[^\d]/g, "");
   const num = parseInt(s, 10) || 0;
   return isNegative ? -num : num;
+}
+
+/* =========================================================
+   AUTO-GENERATE duaTop TỪ danhSachNap (top 10, giữ đồng hạng)
+   ========================================================= */
+function buildDuaTop(){
+  const sorted = [...danhSachNap]
+    .map(r => ({
+      ten: r.ten,
+      soTien: parseChiTiet(r.chiTiet),
+      capBac: r.capBac
+    }))
+    .filter(r => r.soTien > 0)
+    .sort((a, b) => b.soTien - a.soTien);
+
+  if (sorted.length === 0) return [];
+
+  const limit = 10;
+  const cutoff = sorted[Math.min(limit, sorted.length) - 1].soTien;
+  return sorted.filter((r, i) => i < limit || r.soTien === cutoff);
 }
 
 /* ----- Render bảng 1: Nạp chi tiết ----- */
@@ -1475,7 +1476,8 @@ document.querySelector("#tb-bang-nap tbody").innerHTML = bangNapMoi.map((r, i) =
   `;
 }).join("");
 
-/* ----- Render bảng 3: Đua top nạp ----- */
+/* ----- Render bảng 3: Đua top nạp (auto) ----- */
+const duaTop = buildDuaTop();
 const medal = ["🥇", "🥈", "🥉"];
 document.querySelector("#tb-dua-top tbody").innerHTML = duaTop.map((r, i) => `
   <tr class="${i < 3 ? "top" + (i + 1) : ""}">
